@@ -10,7 +10,7 @@ html, body {
     height: 100%;
     margin: auto;
     text-align: center;
-    background: red;
+    background: linear-gradient( to bottom, red, blue, black, green, white);
 }
 
 .box {
