@@ -16,6 +16,7 @@ html, body {
 
 .box {
     margin: auto;
+    padding-bottom: 9px;
     position: relative;
     top: 50%;
     width: 70%;
@@ -26,8 +27,11 @@ html, body {
 
 .playerName {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 15px;
     border-radius: 10px;
+    font-size: 40px;
+    border: 2px #BBBBBB solid;
+    background: #BBBBBB;
 }
 
 .xcrement {
@@ -40,10 +44,6 @@ html, body {
     display: block;
     margin: auto;
     font-size: 100%;
-}
-
-.playerName {
-    margin-top: 50px;
 }
 
 button {
@@ -66,6 +66,9 @@ button {
     width: 300px;
 }
 .colorsList {
+    border: 2px #BBBBBB solid;
+    background: #BBBBBB;
+    font-size: 30px;
     text-align: center;
     display: block;
     margin: auto;
