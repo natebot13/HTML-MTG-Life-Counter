@@ -22,9 +22,14 @@ html, body {
     background-color: rgba(0,0,0,0.5);
 }
 
+.playerName {
+    margin-top: 50px;
+}
+
 .lifeTotal {
     color: white;
     display: block;
+    margin: auto;
     margin-top: 50px;
     font-size: 100%;
 }
@@ -36,4 +41,7 @@ html, body {
 button {
 
     border-radius: 5px;
+}
+.colorsList {
+    display: block;
 }
