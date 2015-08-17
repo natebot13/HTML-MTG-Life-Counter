@@ -29,7 +29,7 @@ function setGradient(player, colorString) {
     }
     console.log("Set " + player + " background to " + gradString)
     if (colorString.length > 1) {
-        gradString = "linear-gradient(to bottom," + gradString + ")"
+        gradString = "linear-gradient(135deg," + gradString + ")"
     }
     document.getElementById(player).style.background = gradString
         // document.getElementById(player).style.background = "linear-gradient(to bottom, black, blue);"
