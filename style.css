@@ -26,7 +26,7 @@ html, body {
 
 .playerName {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 30px;
     border-radius: 10px;
 }
 
@@ -39,7 +39,6 @@ html, body {
     color: white;
     display: block;
     margin: auto;
-    margin-top: 50px;
     font-size: 100%;
 }
 
@@ -52,6 +51,7 @@ button {
     border: 2px #BBBBBB solid;
     background: #BBBBBB;
     margin-bottom: 9px;
+    margin-top: 9px;
     font-size: 40px;
     height: 50px;
     width: 60px;
