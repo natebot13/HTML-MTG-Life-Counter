@@ -1,14 +1,16 @@
 JavaScript:
 	functions:
-		xcrement( int )
-		setGradient( str )
-		addColor( )
-		resetColors( )
+		xcrement(player, amount)
+		setGradient(player, letters)
+		addColor(player, letter)
+		resetColors(player)
 	elements:
 		background
 		playerName
 		lifeAddOne
 		lifeAddFive
+		lifeLoseOne
+		lifeLoseFive
 		lifeTotal
 		colorsList
 		colorButtons
