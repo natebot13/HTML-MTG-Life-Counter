@@ -14,6 +14,13 @@ html, body {
     background: linear-gradient( 135deg, black, green, red, blue, white);
 }
 
+.texture {
+    height: 100%;
+    background-image: url("images/mottled_BG_1.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
 .box {
     margin: auto;
     padding-bottom: 9px;

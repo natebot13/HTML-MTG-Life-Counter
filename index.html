@@ -6,24 +6,26 @@
     </head>
     <body>
         <div class="player" id="P1">
-            <div class="box">
-                <input type="text" class="playerName" value="P1">
-                <div class="xcrement">
-                    <button onclick="xcrement('P1', 1)">+1</button>
-                    <button onclick="xcrement('P1', 5)">+5</button>
+            <div class="texture">
+                <div class="box">
+                    <input type="text" class="playerName" value="P1">
+                    <div class="xcrement">
+                        <button onclick="xcrement('P1', 1)">+1</button>
+                        <button onclick="xcrement('P1', 5)">+5</button>
+                    </div>
+                    <span class="lifeTotal">20</span>
+                    <div class="xcrement">
+                        <button onclick="xcrement('P1', -1)">-1</button>
+                        <button onclick="xcrement('P1', -5)">-5</button>
+                    </div>
+                    <input type="text" disabled="true" class="colorsList">
+                    <button onclick="addColor('P1', 'B')" class="manaBtn B"></button>
+                    <button onclick="addColor('P1', 'G')" class="manaBtn G"></button>
+                    <button onclick="addColor('P1', 'R')" class="manaBtn R"></button>
+                    <button onclick="addColor('P1', 'U')" class="manaBtn U"></button>
+                    <button onclick="addColor('P1', 'W')" class="manaBtn W"></button>
+                    <button onclick="clearColors('P1')" class="clearBtn">Clr</button>
                 </div>
-                <span class="lifeTotal">20</span>
-                <div class="xcrement">
-                    <button onclick="xcrement('P1', -1)">-1</button>
-                    <button onclick="xcrement('P1', -5)">-5</button>
-                </div>
-                <input type="text" disabled="true" class="colorsList">
-                <button onclick="addColor('P1', 'B')" class="manaBtn B"></button>
-                <button onclick="addColor('P1', 'G')" class="manaBtn G"></button>
-                <button onclick="addColor('P1', 'R')" class="manaBtn R"></button>
-                <button onclick="addColor('P1', 'U')" class="manaBtn U"></button>
-                <button onclick="addColor('P1', 'W')" class="manaBtn W"></button>
-                <button onclick="clearColors('P1')" class="clearBtn">Clr</button>
             </div>
         </div>
         <script src="script.js"></script>
