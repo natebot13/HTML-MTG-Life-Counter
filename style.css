@@ -41,9 +41,9 @@ html, body {
 }
 
 button {
-    border: 2px gray solid;
+    border: 2px #BBBBBB solid;
     border-radius: 5px;
-    background: gray;
+    background: #BBBBBB;
     color: black;
 }
 .colorsList {
