@@ -42,11 +42,11 @@ html, body {
     margin-top: 50px;
 }
 
-.buttons button {
+button {
     border-radius: 5px;
     border: 2px #BBBBBB solid;
     background: #BBBBBB;
-    margin-bottom: 5px;
+    margin-bottom: 9px;
     font-size: 40px;
     height: 50px;
     width: 60px;
@@ -54,9 +54,11 @@ html, body {
 }
 
 .clearBtn {
+    font-size: 40px;
     display: block;
-    margin: auto;
-    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
 }
 .colorsList {
     text-align: center;
