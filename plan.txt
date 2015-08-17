@@ -1,0 +1,14 @@
+JavaScript:
+	functions:
+		xcrement( int )
+		setGradient( str )
+		addColor( )
+		resetColors( )
+	elements:
+		background
+		playerName
+		lifeAddOne
+		lifeAddFive
+		lifeTotal
+		colorsList
+		colorButtons
