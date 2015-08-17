@@ -6,7 +6,7 @@
     <body>
         <div class="player" id="P1">
             <div class="box">
-                <input type="text" class="playerName">
+                <input type="text" class="playerName" value="P1">
                 <span class="lifeTotal">20</span>
                 <input type="text" disabled="true" class="colorsList">
                 <button onclick="addColor('P1', 'B')">B</button>
@@ -14,6 +14,7 @@
                 <button onclick="addColor('P1', 'G')">G</button>
                 <button onclick="addColor('P1', 'R')">R</button>
                 <button onclick="addColor('P1', 'W')">W</button>
+                <button onclick="clearColors('P1')">Clr</button>
             </div>
         </div>
         <script src="script.js"></script>

@@ -23,6 +23,7 @@ html, body {
 }
 
 .playerName {
+    text-align: center;
     margin-top: 50px;
 }
 
@@ -35,5 +36,8 @@ html, body {
 }
 
 .colorsList {
+    text-align: center;
     display: block;
+    margin: auto;
+    margin-bottom: 5px;
 }
