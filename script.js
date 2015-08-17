@@ -1,5 +1,5 @@
 function xcrement(player, amount) {
-    var myElement = document.getElementById(player).getElementById("lifeTotal")
+    var myElement = document.getElementById(player).getElementsByClassName("lifeTotal")[0]
     myElement.innerHTML = myElement.innerHTML.value + amount.value
     console.log("Changed  " + player + " life by " + amount.value)
 }
