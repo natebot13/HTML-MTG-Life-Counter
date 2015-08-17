@@ -1,7 +1,7 @@
 function xcrement(player, amount) {
     var myElement = document.getElementById(player).getElementsByClassName("lifeTotal")[0]
-    myElement.innerHTML = myElement.innerHTML.value + amount.value
-    console.log("Changed  " + player + " life by " + amount.value)
+    myElement.innerHTML = parseInt(myElement.innerHTML) + amount
+    console.log("Changed  " + player + " life by " + amount)
 }
 
 function setGradient(player, colorString) {
