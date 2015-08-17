@@ -28,8 +28,10 @@ function setGradient(player, colorString) {
         }
     }
     console.log("Set " + player + " background to " + gradString)
-    console.log("linear-gradient(to bottom," + gradString + ");")
-    document.getElementById(player).style.background = "linear-gradient(to bottom," + gradString + ");"
+    if (colorString.length > 1) {
+        gradString = "linear-gradient(to bottom," + gradString + ")"
+    }
+    document.getElementById(player).style.background = gradString
         // document.getElementById(player).style.background = "linear-gradient(to bottom, black, blue);"
 
 }
