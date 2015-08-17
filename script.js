@@ -33,8 +33,8 @@ function setGradient(player, colorString) {
 }
 
 function addColor(player, letter) {
-    var myElement = document.getElementById(player).getElementById(colorsList)
-    myElement.innerHTML += letter
+    var myElement = document.getElementById(player).getElementById("colorsList");
+    myElement.innerHTML += letter;
 }
 
 function resetColors(player) {
