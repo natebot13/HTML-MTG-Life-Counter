@@ -1,5 +1,7 @@
 function xcrement(player, amount) {
-    document.getElementById(player).getElementById("lifeTotal") += amount
+    var myElement = document.getElementById(player).getElementById("lifeTotal")
+    myElement.innerHTML = myElement.innerHTML.value + amount.value
+    console.log("Changed  " + player + " life by " + amount.value)
 }
 
 function setGradient(player, colorString) {
@@ -31,9 +33,10 @@ function setGradient(player, colorString) {
 }
 
 function addColor(player, letter) {
-	
+    var myElement = document.getElementById(player).getElementById(colorsList)
+    myElement.innerHTML += letter
 }
 
 function resetColors(player) {
-
+    document.getElementById(player).getElementById(colorsList).innerHTML = ""
 }
