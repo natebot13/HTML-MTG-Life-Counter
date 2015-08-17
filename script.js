@@ -18,7 +18,7 @@ function setGradient(player, colorString) {
             gradString += "blue"
         } else
         if (colorString[i].toLowerCase() === "w") {
-            gradString += "white"
+            gradString += "#dce0bb"
         } else
         if (colorString[i].toLowerCase() === "b") {
             gradString += "black"
