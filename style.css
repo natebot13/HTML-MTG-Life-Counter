@@ -26,6 +26,7 @@ html, body {
 .playerName {
     text-align: center;
     margin-top: 50px;
+    border-radius: 10px;
 }
 
 .lifeTotal {
@@ -51,4 +52,5 @@ button {
     display: block;
     margin: auto;
     margin-bottom: 5px;
+    border-radius: 10px;
 }
