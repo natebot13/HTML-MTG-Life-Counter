@@ -37,8 +37,8 @@ html, body {
     margin-top: 15px;
     border-radius: 10px;
     font-size: 40px;
-    border: 2px #BBBBBB solid;
-    background: #BBBBBB;
+    border: 2px #DDDDDD solid;
+    background: #DDDDDD;
 }
 
 .xcrement {
@@ -55,10 +55,12 @@ html, body {
 
 button {
     border-radius: 5px;
-    border: 2px #BBBBBB solid;
-    background: #BBBBBB;
-    margin-bottom: 9px;
-    margin-top: 9px;
+    border: 2px #DDDDDD solid;
+    background: #DDDDDD;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-right: -5px;
+    margin-left: -5px;
     font-size: 40px;
     height: 60px;
     width: 60px;
@@ -73,8 +75,8 @@ button {
     width: 60%;
 }
 .colorsList {
-    border: 2px #BBBBBB solid;
-    background: #BBBBBB;
+    border: 2px #DDDDDD solid;
+    background: #DDDDDD;
     font-size: 30px;
     text-align: center;
     display: block;
