@@ -14,3 +14,5 @@ JavaScript:
 		lifeTotal
 		colorsList
 		colorButton
+	replacements:
+		%thingy%
