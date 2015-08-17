@@ -13,4 +13,4 @@ JavaScript:
 		lifeLoseFive
 		lifeTotal
 		colorsList
-		colorButtons
+		colorButton
