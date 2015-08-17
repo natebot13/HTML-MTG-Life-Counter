@@ -6,37 +6,45 @@ function xcrement(player, amount) {
 
 function setGradient(player, colorString) {
     //(red,green,blue,white,black)
-    var gradStr = ""
+    var gradString = ""
     for (var i = 0; i < colorString.length; i++) {
-        if (colorString[i].toLowerCase == "r") {
+        if (colorString[i].toLowerCase() === "r") {
             gradString += "red"
         } else
-        if (colorString[i].toLowerCase == "g") {
+        if (colorString[i].toLowerCase() === "g") {
             gradString += "green"
         } else
-        if (colorString[i].toLowerCase == "u") {
+        if (colorString[i].toLowerCase() === "u") {
             gradString += "blue"
         } else
-        if (colorString[i].toLowerCase == "w") {
+        if (colorString[i].toLowerCase() === "w") {
             gradString += "white"
         } else
-        if (colorString[i].toLowerCase == "b") {
+        if (colorString[i].toLowerCase() === "b") {
             gradString += "black"
         }
-        if (i != colorString.length) {
+        if (i != colorString.length - 1) {
             gradString += ","
         }
     }
     console.log("Set " + player + " background to " + gradString)
-    document.getElementById(player).style.background = "linear-gradient(" + gradString + ");"
+    console.log("linear-gradient(to bottom," + gradString + ");")
+    document.getElementById(player).style.background = "linear-gradient(to bottom," + gradString + ");"
+        // document.getElementById(player).style.background = "linear-gradient(to bottom, black, blue);"
 
 }
 
 function addColor(player, letter) {
     var myElement = document.getElementById(player).getElementsByClassName("colorsList")[0];
     myElement.value += letter;
+    setGradient(player, myElement.value)
 }
 
 function resetColors(player) {
     document.getElementById(player).getElementById(colorsList).innerHTML = ""
+}
+
+function clearColors(player) {
+    var myElement = document.getElementById(player).getElementsByClassName("colorsList")[0];
+    myElement.value = "";
 }

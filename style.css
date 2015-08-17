@@ -32,3 +32,8 @@ html, body {
 .playerName {
     margin-top: 50px;
 }
+
+button {
+
+    border-radius: 5px;
+}
