@@ -9,5 +9,23 @@ html, body {
     height: 100%;
     margin: auto;
     text-align: center;
-    background-color: blue;
+    background-color: red;
+}
+
+.box {
+    margin: auto;
+    position: relative;
+    top: 50%;
+    width: 70%;
+    transform: translatey(-50%);
+    background-color: rgba(0,0,0,0.3);
+}
+
+.lifeTotal {
+    display: block;
+    margin-top: 50px;
+}
+
+.playerName {
+    margin-top: 50px;
 }
