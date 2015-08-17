@@ -41,7 +41,7 @@ function addColor(player, letter) {
 }
 
 function resetColors(player) {
-    document.getElementById(player).getElementById(colorsList).innerHTML = ""
+    document.getElementById(player).getElementById("colorsList").innerHTML = ""
 }
 
 function clearColors(player) {
