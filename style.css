@@ -35,6 +35,14 @@ html, body {
     font-size: 100%;
 }
 
+.playerName {
+    margin-top: 50px;
+}
+
+button {
+
+    border-radius: 5px;
+}
 .colorsList {
     text-align: center;
     display: block;
