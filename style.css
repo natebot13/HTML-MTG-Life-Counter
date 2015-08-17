@@ -11,7 +11,7 @@ html, body {
     height: 100%;
     margin: auto;
     text-align: center;
-    background: linear-gradient( to bottom, black, green, red, blue, white);
+    background: linear-gradient( 135deg, black, green, red, blue, white);
 }
 
 .box {
