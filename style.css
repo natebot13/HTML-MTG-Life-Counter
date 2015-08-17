@@ -30,6 +30,11 @@ html, body {
     border-radius: 10px;
 }
 
+.xcrement {
+    display: block;
+    margin: auto;
+}
+
 .lifeTotal {
     color: white;
     display: block;
