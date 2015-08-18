@@ -11,7 +11,7 @@ html, body {
     width: 50%;
     height: 100%;
     text-align: center;
-    background: linear-gradient( 135deg, black, green, red, blue, white);
+    background: linear-gradient( 135deg, black, black, green, red, blue, white, white);
 }
 
 .texture {
@@ -72,6 +72,9 @@ button {
     height: 60px;
     width: 60px;
     color: black;
+}
+.hudBtn{
+    width: 100%;
 }
 
 .clearBtn {
