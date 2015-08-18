@@ -45,7 +45,7 @@ table {
 }
 
 .playerName {
-    width: 80%;
+    width: 90%;
     text-align: center;
     margin-top: 15px;
     border-radius: 10px;
@@ -63,7 +63,7 @@ table {
     color: white;
     display: block;
     margin: auto;
-    font-size: 100%;
+    font-size: 200%;
 }
 
 button {
@@ -141,7 +141,7 @@ button {
     background-image: url("images/W_BW.png");
  }
 
-.playerSlot {
+.playerSlots {
     margin-right: -5px;
     margin-left: -5px;
     border: none;
