@@ -40,7 +40,7 @@ html, body, table {
 }
 
 .playerName {
-    width: 80%;
+    width: 90%;
     text-align: center;
     margin-top: 15px;
     border-radius: 10px;
@@ -127,7 +127,7 @@ button {
 .W {
     background-image: url("images/W_BW.png");
  }
-.playerSlot {
+.playerSlots {
     margin-right: -5px;
     margin-left: -5px;
     border: none;
