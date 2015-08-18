@@ -73,6 +73,9 @@ button {
     width: 60px;
     color: black;
 }
+.hudBtn{
+    width: 100%;
+}
 
 .clearBtn {
     font-size: 40px;
