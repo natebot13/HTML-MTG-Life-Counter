@@ -1,4 +1,4 @@
-html, body {
+html, body, table {
     width: 100%;
     height: 100%;
     margin: 0px;
@@ -82,6 +82,11 @@ button {
     margin-right: auto;
     width: 60%;
 }
+
+.hudBtn {
+    width: 100%;
+}
+
 .colorsList {
     border: 2px #DDDDDD solid;
     background: #DDDDDD;
