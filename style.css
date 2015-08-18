@@ -4,6 +4,7 @@ html, body {
     margin: 0px;
     font-family: sans-serif;
     font-size: 50px;
+    background: black;
 }
 
 .player {
@@ -39,7 +40,7 @@ html, body {
 }
 
 .playerName {
-    width: 60%;
+    width: 80%;
     text-align: center;
     margin-top: 15px;
     border-radius: 10px;
@@ -66,8 +67,8 @@ button {
     background: #DDDDDD;
     margin-bottom: 5px;
     margin-top: 5px;
-    margin-right: -5px;
-    margin-left: -5px;
+    margin-right: -1px;
+    margin-left: -1px;
     font-size: 40px;
     height: 60px;
     width: 60px;
@@ -93,6 +94,7 @@ button {
     margin: auto;
     margin-bottom: 5px;
     border-radius: 10px;
+    width: 80%;
 }
 
 .manaBtn {
@@ -123,3 +125,8 @@ button {
 .W {
     background-image: url("images/W_BW.png");
  }
+.playerSlot {
+    margin-right: -5px;
+    margin-left: -5px;
+    border: none;
+}
