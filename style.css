@@ -12,6 +12,7 @@ table {
 }
 
 .player {
+    transform: rotate(0deg);
     width: 100%;
     height: 100%;
     margin: auto;
@@ -87,8 +88,16 @@ button {
     width: 60%;
 }
 
-.hudBtn {
+.addBtn {
     width: 100%;
+}
+
+.flipBtn {
+    font-size: 40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
 }
 
 .colorsList {
@@ -131,6 +140,7 @@ button {
 .W {
     background-image: url("images/W_BW.png");
  }
+
 .playerSlots {
     margin-right: -5px;
     margin-left: -5px;

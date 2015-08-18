@@ -62,6 +62,14 @@ function addPlayer() {
     console.log("Added player " + String(numPlayers))
 }
 
+function flipPlayer(player) {
+    if (document.getElementById(player).style.transform === "") {
+        document.getElementById(player).style.transform = "rotate(180deg)"
+    } else {
+        document.getElementById(player).style.transform = ""
+    }
+}
+
 function replaceAll(source, search, replace) {
     return source.split(search).join(replace)
 }
