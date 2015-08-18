@@ -8,9 +8,9 @@ html, body {
 }
 
 .player {
-    width: 100%;
+    display: inline-table;
+    width: 50%;
     height: 100%;
-    margin: auto;
     text-align: center;
     background: linear-gradient( 135deg, black, black, green, red, blue, white, white);
 }
