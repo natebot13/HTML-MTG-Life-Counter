@@ -6,6 +6,7 @@ function xcrement(player, amount) {
 
 function setGradient(player, colorString) {
     //(red,green,blue,white,black)
+    colorString = colorString[0] + colorString + colorString[ colorString.length - 1]
     var gradString = ""
     for (var i = 0; i < colorString.length; i++) {
         if (colorString[i].toLowerCase() === "r") {
