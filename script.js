@@ -13,14 +13,14 @@ function setGradient(player, colorString) {
     for (var i = 0; i < colorString.length; i++) {
         if (colorString[i].toLowerCase() === "r") {
             // gradString += "red"
-            gradString += "#ffcc5837"
+            gradString += "#CC0000"
         } else
         if (colorString[i].toLowerCase() === "g") {
             gradString += "green"
         } else
         if (colorString[i].toLowerCase() === "u") {
             // gradString += "blue"
-            gradString += "#0066CC"
+            gradString += "#0066cc"
         } else
         if (colorString[i].toLowerCase() === "w") {
             // gradString += "white"
