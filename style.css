@@ -17,7 +17,7 @@ table {
     height: 100%;
     margin: auto;
     text-align: center;
-    background: linear-gradient( 135deg, black, green, red, blue, white);
+    background: linear-gradient( 135deg, #232323,#232323, #336600, #E13C1E, #0066cc, #dce0bb,#dce0bb);
 }
 
 .texture {
