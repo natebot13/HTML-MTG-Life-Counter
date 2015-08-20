@@ -45,13 +45,13 @@ var basePlayer = {
             }
         }
         console.log("Set " + this.playerName + " background to " + gradString)
-        self.colors = gradString
+        this.colors = gradString
     },
     getColorsStyle: function(){
-        if (this.colors.length > 1) {wq3tg4ewrw3
-            gradString = "linear-gradient(135deg," + gradString + ")"
+        if (this.colors.length > 1) {
+            this.colors = "linear-gradient(135deg," + this.colors + ")"
         }
-        return 
+        return gradString
     }
 
 }
