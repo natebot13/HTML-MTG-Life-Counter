@@ -1,5 +1,61 @@
 var numPlayers = 1
 
+var basePlayer = {
+    playerName: "",
+    life: 20,
+    colors: [],
+    getColors: function() {
+        return this.colors
+    },
+    getLife: function() {
+        return this.life
+    },
+    getName: function() {
+        return this.playerName
+    },
+    xcrementLife: function(n) {
+        this.life = Number(this.life) + n
+    },
+    setColors: function(colorString) {
+        colorString = colorString[0] + colorString + colorString[colorString.length - 1]
+        var gradString = ""
+        for (var i = 0; i < colorString.length; i++) {
+            if (colorString[i].toLowerCase() === "r") {
+                // gradString += "red"
+                gradString += "#E13C1E"
+            } else
+            if (colorString[i].toLowerCase() === "g") {
+                // gradString += "green"
+                gradString += "#336600"
+            } else
+            if (colorString[i].toLowerCase() === "u") {
+                // gradString += "blue"
+                gradString += "#0066cc"
+            } else
+            if (colorString[i].toLowerCase() === "w") {
+                // gradString += "white"
+                gradString += "#dce0bb"
+            } else
+            if (colorString[i].toLowerCase() === "b") {
+                // gradString += "black"
+                gradString += "#232323"
+            }
+            if (i != colorString.length - 1) {
+                gradString += ","
+            }
+        }
+        console.log("Set " + this.playerName + " background to " + gradString)
+        self.colors = gradString
+    },
+    getColorsStyle: function(){
+        if (this.colors.length > 1) {wq3tg4ewrw3
+            gradString = "linear-gradient(135deg," + gradString + ")"
+        }
+        return 
+    }
+
+}
+
 function xcrement(player, amount) {
     var myElement = document.getElementById(player).getElementsByClassName("lifeTotal")[0]
     myElement.innerHTML = parseInt(myElement.innerHTML) + amount
