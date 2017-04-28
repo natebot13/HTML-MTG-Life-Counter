@@ -107,6 +107,8 @@ function basePlayer(name) {
             plusDiv.appendChild(btn);
             btn.innerHTML = adds[i];
             var n = adds[i];
+            // nested function definitions to force evaluation of required variables
+            // AKA lots of closure nonsense
             btn.addEventListener("click", function(N) {
                 return function() {
                     that.xcrementLife(N);
