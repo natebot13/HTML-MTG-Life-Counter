@@ -255,14 +255,7 @@ for (var i = 0; i < 2; i++) {
 // display it
 manager.render(document.getElementById("allPlayers"));
 
-// ========== old UI functions ==========
-
-function xcrement(player, amount) {
-    var myElement = document.getElementById(player).getElementsByClassName("lifeTotal")[0]
-    myElement.innerHTML = parseInt(myElement.innerHTML) + amount
-    console.log("Changed  " + player + " life by " + amount)
-};
-
+// MTG color to styling helper functions
 function gradientString(colors) {
     var grads = [];
     for (var i = 0; i < colors.length; i++) {
@@ -302,29 +295,6 @@ function gradStyleString(colorString) {
     }
 };
 
-function setGradient(player, colorString) {
-    //(red,green,blue,white,black)
-    // the ends of the diagonal gradient are tiny, so double them up
-    colorString = colorString[0] + colorString + colorString[colorString.length - 1]
-    document.getElementById(player).style.background = gradStyleString(colorString);
-    // document.getElementById(player).style.background = "linear-gradient(to bottom, black, blue);"
-
-};
-
-function addColor(player, letter) {
-    var myElement = document.getElementById(player).getElementsByClassName("colorsList")[0];
-    myElement.value += letter;
-    setGradient(player, myElement.value)
-};
-
-function resetColors(player) {
-    document.getElementById(player).getElementById("colorsList").innerHTML = "";
-};
-
-function clearColors(player) {
-    var myElement = document.getElementById(player).getElementsByClassName("colorsList")[0];
-    myElement.value = "";
-};
 
 var addPlayer = function() {
     manager.addPlayer();
@@ -333,13 +303,6 @@ var addPlayer = function() {
     manager.render(document.getElementById("allPlayers"));
 };
 
-function flipPlayer(player) {
-    if (document.getElementById(player).style.transform === "") {
-        document.getElementById(player).style.transform = "rotate(180deg)";
-    } else {
-        document.getElementById(player).style.transform = "";
-    }
-};
 
 function replaceAll(source, search, replace) {
     return source.split(search).join(replace);
