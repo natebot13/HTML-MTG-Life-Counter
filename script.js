@@ -61,7 +61,7 @@ function basePlayer(name) {
                 gradString += ","
             }
         }
-        console.log("Set " + this.playerName + " background to " + gradString)
+        // console.log("Set " + this.playerName + " background to " + gradString)
         this.colors.push(colorString)
     };
     this.getColorsStyle = function() {
@@ -86,7 +86,7 @@ function basePlayer(name) {
         // the ends of the diagonal gradient are tiny, so double them up
         colorString = this.colors.join("");
         styleString = gradStyleString(colorString);
-        console.log(this.name + " background = " + styleString);
+        // console.log(this.name + " background = " + styleString);
         mydiv.style.background = styleString;
         if (this.flipped) {
             mydiv.style.transform = "rotate(180deg)";
@@ -111,7 +111,7 @@ function basePlayer(name) {
         boxDiv.appendChild(nameInput);
         nameInput.classList.add("playerName")
         nameInput.placeholder = name;
-        // nameInput.value = this.name;
+        nameInput.value = this.name;
 
         // allow changing name
         nameInput.addEventListener("keyup", function() {
@@ -220,7 +220,7 @@ function playerManager() {
     this.players = [];
     this.count = 0;
     this.addPlayer = function() {
-        this.players.push(new basePlayer("Planeswalker " + this.count));
+        this.players.push(new basePlayer("Planeswalker" + this.count));
         this.count++;
     };
     this.render = function(element) {
@@ -253,9 +253,9 @@ for (var i = 0; i < 2; i++) {
     manager.addPlayer();
 }
 // display it
-manager.render(document.getElementById("test"));
+manager.render(document.getElementById("allPlayers"));
 
-// ========== UI functions ==========
+// ========== old UI functions ==========
 
 function xcrement(player, amount) {
     var myElement = document.getElementById(player).getElementsByClassName("lifeTotal")[0]
@@ -327,14 +327,10 @@ function clearColors(player) {
 };
 
 var addPlayer = function() {
-    var template = String(document.getElementById("P1").innerHTML);
-    numPlayers++;
-    var output = '<div class="player" id="P1">'.replace("P1", "P" + String(numPlayers)) + replaceAll(template, "P1", "P" + String(numPlayers)) + "</div>";
-    document.getElementById("allPlayers").innerHTML += "<td>" + output + "</td>";
     manager.addPlayer();
     console.log("all players: " + manager.players);
     console.log("Added player " + String(numPlayers));
-    manager.render(document.getElementById("test"));
+    manager.render(document.getElementById("allPlayers"));
 };
 
 function flipPlayer(player) {
