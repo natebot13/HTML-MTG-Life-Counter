@@ -4,6 +4,10 @@ function basePlayer(name) {
     this.name = name;
     this.life = 20;
     this.colors = [];
+    this.renderElement = NaN;
+    this.refresh = function() {
+        this.render(this.renderElement);
+    };
     this.getColors = function() {
         return this.colors
     };
@@ -17,7 +21,9 @@ function basePlayer(name) {
         return this.playerName
     };
     this.xcrementLife = function(n) {
-        this.life = Number(this.life) + n
+        console.log("Attempt to add " + n + " life to " + this.name);
+        this.life = this.life + n;
+        console.log(this.name + ".life=" + this.life);
     };
     this.setColors = function(colorString) {
         colorString = colorString[0] + colorString + colorString[colorString.length - 1]
@@ -58,8 +64,84 @@ function basePlayer(name) {
         return gradString
     };
     this.render = function(element) {
-        element.innerHTML = "I am player " + this.name;
-        console.log("rendering player " + this.name);
+        // memorize which element to render to/refresh
+        this.renderElement = element;
+        // delete all child nodes (useful for case of refresh)
+        for (var i = element.children.length - 1; i >= 0; i--) {
+            element.removeChild(element.children[i]);
+        }
+        // evaluate a reference to self
+        var that = this;
+        // the whole player thing
+        var mydiv = document.createElement("div");
+        element.appendChild(mydiv);
+        mydiv.classList.add("player");
+        // I don't remember what texture is for
+        var textureDiv = document.createElement("div");
+        mydiv.appendChild(textureDiv);
+        textureDiv.classList.add("texture")
+            // another containing element
+        var boxDiv = document.createElement("div");
+        textureDiv.appendChild(boxDiv);
+        boxDiv.classList.add("box");
+        // player name input
+        var nameInput = document.createElement("input");
+        boxDiv.appendChild(nameInput);
+        nameInput.classList.add("playerName")
+        nameInput.placeholder = "Planeswalker " + name;
+        nameInput.value = this.name;
+        // allow changing name
+        nameInput.addEventListener("keyup", function() {
+            console.log("set " + that.name + " to " + nameInput.value);
+            that.name = nameInput.value;
+        });
+        // life adding buttons
+        var plusDiv = document.createElement("div");
+        boxDiv.appendChild(plusDiv);
+        plusDiv.classList.add("xcrement");
+
+        var adds = [5, 1];
+        var btn = NaN;
+        for (var i = adds.length - 1; i >= 0; i--) {
+            var btn = document.createElement("button");
+            plusDiv.appendChild(btn);
+            btn.innerHTML = adds[i];
+            var n = adds[i];
+            btn.addEventListener("click", function(N) {
+                return function() {
+                    that.xcrementLife(N);
+                    that.refresh();
+                }
+            }(n))
+        }
+        // life display span
+        var lifeDisplay = document.createElement("span");
+        boxDiv.appendChild(lifeDisplay);
+        lifeDisplay.classList.add("lifeTotal");
+        lifeDisplay.innerHTML = this.life;
+
+        // life subtract buttons
+        var minusDiv = document.createElement("div");
+        boxDiv.appendChild(minusDiv);
+        minusDiv.classList.add("xcrement");
+
+        var subs = [-5, -1];
+        var btn = NaN;
+        for (var i = subs.length - 1; i >= 0; i--) {
+            var btn = document.createElement("button");
+            minusDiv.appendChild(btn);
+            btn.innerHTML = subs[i];
+            var n = subs[i];
+            btn.addEventListener("click", function(N) {
+                return function() {
+                    that.xcrementLife(N);
+                    that.refresh();
+                }
+            }(n))
+        }
+
+        // element.innerHTML = "I am player " + this.name;
+        // console.log("rendering player " + this.name);
     };
 
 };
@@ -69,8 +151,7 @@ function playerManager() {
     this.players = [];
     this.count = 0;
     this.addPlayer = function() {
-        this.players.push( new basePlayer(this.count)
-);
+        this.players.push(new basePlayer("Planeswalker " + this.count));
         this.count++;
     };
     this.render = function(element) {
@@ -83,7 +164,8 @@ function playerManager() {
         // add it as a child of the rendering target
         element.appendChild(table);
         var row = table.insertRow();
-        for (var i = this.players.length - 1; i >= 0; i--) {
+        for (var i = 0; i < this.players.length; i++) {
+            console.log("rendering player " + i);
             var col = row.insertCell();
             this.players[i].render(col);
         }
@@ -97,6 +179,12 @@ function playerManager() {
 
 // ========== Globals ==========
 var manager = new playerManager();
+// add the first and second players
+for (var i = 0; i < 2; i++) {
+    manager.addPlayer();
+}
+// display it
+manager.render(document.getElementById("test"));
 
 // ========== UI functions ==========
 
