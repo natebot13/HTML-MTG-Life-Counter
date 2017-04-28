@@ -3,7 +3,7 @@ var numPlayers = 1;
 function basePlayer(name) {
     this.name = name;
     this.life = 20;
-    this.colors = [];
+    this.colors = "WUBRG".split("");
     this.renderElement = NaN;
     this.flipped = false;
     this.flip = function() {
@@ -237,6 +237,8 @@ function playerManager() {
             console.log("rendering player " + i);
             var col = row.insertCell();
             this.players[i].render(col);
+            // once rendered, clear the colors so that the expected color change happens on first click
+            this.players[i].clearColors();
         }
 
         // loop through list of players, for each one creating HTML table column
