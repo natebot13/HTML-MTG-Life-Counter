@@ -1,4 +1,6 @@
-html, body, table {
+html,
+body,
+table {
     width: 100%;
     height: 100%;
     margin: 0px;
@@ -12,16 +14,16 @@ table {
 }
 
 .player {
-	-webkit-transform: rotate(0deg);
-	-moz-transform: rotate(0deg);
-	-ms-transform: rotate(0deg);
-	-o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
     transform: rotate(0deg);
     width: 100%;
     height: 100%;
     margin: auto;
     text-align: center;
-    background: linear-gradient( 135deg, #232323,#232323, #336600, #E13C1E, #0066cc, #dce0bb,#dce0bb);
+    background: linear-gradient( 135deg, #232323, #232323, #336600, #E13C1E, #0066cc, #dce0bb, #dce0bb);
 }
 
 .texture {
@@ -42,7 +44,7 @@ table {
     -ms-transform: translatey(-50%);
     -o-transform: translatey(-50%);
     transform: translatey(-50%);
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 20px;
 }
 
@@ -76,7 +78,7 @@ table {
 
 button {
     border-radius: 5px;
-    border: 2px #DDDDDD solid;
+    border: 2px solid #DDDDDD;
     background: #DDDDDD;
     margin-bottom: 5px;
     margin-top: 5px;
@@ -97,7 +99,7 @@ button {
 }
 
 .addBtn {
-    width: 100%;
+    width: auto;
 }
 
 .flipBtn {
@@ -147,11 +149,11 @@ button {
 
 .W {
     background-image: url("images/W_BW.png");
- }
+}
 
 .playerSlots {
     margin-right: -5px;
     margin-left: -5px;
     border: none;
-    border-spacing:0;
+    border-spacing: 0;
 }

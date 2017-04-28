@@ -68,7 +68,7 @@ function basePlayer(name) {
         if (this.colors.length > 1) {
             this.colors = "linear-gradient(135deg," + this.colors + ")"
         }
-        return gradString
+        return gradString;
     };
     this.render = function(element) {
         // memorize which element to render to/refresh
@@ -209,8 +209,6 @@ function basePlayer(name) {
             that.flip();
             that.refresh();
         });
-        // element.innerHTML = "I am player " + this.name;
-        // console.log("rendering player " + this.name);
     };
 
 };
@@ -247,6 +245,9 @@ function playerManager() {
         // loop through list of players, for each one creating HTML table column
         // and render those players each into their own column
     }
+    this.refresh = function() {
+        this.render(this.renderElement);
+    }
 
 }
 
@@ -259,6 +260,7 @@ for (var i = 0; i < 2; i++) {
     manager.addPlayer();
 }
 // display it
+manager.refresh();
 
 // MTG color to styling helper functions
 function gradientString(colors) {
@@ -311,4 +313,18 @@ var addPlayer = function() {
 
 function replaceAll(source, search, replace) {
     return source.split(search).join(replace);
+};
+
+function playCommander() {
+    for (var i = manager.players.length - 1; i >= 0; i--) {
+        manager.players[i].life = 40;
+    }
+    manager.refresh();
+};
+
+function playSixty() {
+    for (var i = manager.players.length - 1; i >= 0; i--) {
+        manager.players[i].life = 20;
+    }
+    manager.refresh();
 };
