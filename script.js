@@ -28,9 +28,9 @@ function basePlayer(name) {
         return this.playerName
     };
     this.xcrementLife = function(n) {
-        console.log("Attempt to add " + n + " life to " + this.name);
+        // console.log("Attempt to add " + n + " life to " + this.name);
         this.life = this.life + n;
-        console.log(this.name + ".life=" + this.life);
+        // console.log(this.name + ".life=" + this.life);
     };
     this.setColors = function(colorString) {
         colorString = colorString[0] + colorString + colorString[colorString.length - 1]
@@ -115,7 +115,7 @@ function basePlayer(name) {
 
         // allow changing name
         nameInput.addEventListener("keyup", function() {
-            console.log("set " + that.name + " to " + nameInput.value);
+            // console.log("set " + that.name + " to " + nameInput.value);
             that.name = nameInput.value;
         });
 
@@ -219,11 +219,16 @@ function basePlayer(name) {
 function playerManager() {
     this.players = [];
     this.count = 0;
+    this.renderElement = NaN;
     this.addPlayer = function() {
         this.players.push(new basePlayer("Planeswalker" + this.count));
+        this.render(this.renderElement);
+        // once rendered, clear the colors so that the expected color change happens on first click
+        this.players[this.count].clearColors();
         this.count++;
     };
     this.render = function(element) {
+        this.renderElement = element;
         // loop through target containing element and delete all children
         for (var i = element.children.length - 1; i >= 0; i--) {
             element.removeChild(element.children[i]);
@@ -237,8 +242,6 @@ function playerManager() {
             console.log("rendering player " + i);
             var col = row.insertCell();
             this.players[i].render(col);
-            // once rendered, clear the colors so that the expected color change happens on first click
-            this.players[i].clearColors();
         }
 
         // loop through list of players, for each one creating HTML table column
@@ -250,12 +253,12 @@ function playerManager() {
 
 // ========== Globals ==========
 var manager = new playerManager();
+manager.render(document.getElementById("allPlayers"));
 // add the first and second players
 for (var i = 0; i < 2; i++) {
     manager.addPlayer();
 }
 // display it
-manager.render(document.getElementById("allPlayers"));
 
 // MTG color to styling helper functions
 function gradientString(colors) {
