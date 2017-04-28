@@ -7,34 +7,10 @@
 </head>
 
 <body>
+    <div id="test">
+    </div>
     <table>
-        <tr id="allPlayers" class="playerSlots" >
-            <td >
-                <div class="player" id="P1">
-                    <div class="texture">
-                        <div class="box">
-                            <input type="text" class="playerName" placeholder="Planeswalker" >
-                            <div class="xcrement">
-                                <button onclick="xcrement('P1', 1)">+1</button>
-                                <button onclick="xcrement('P1', 5)">+5</button>
-                            </div>
-                            <span class="lifeTotal">20</span>
-                            <div class="xcrement">
-                                <button onclick="xcrement('P1', -1)">-1</button>
-                                <button onclick="xcrement('P1', -5)">-5</button>
-                            </div>
-                            <input type="text" disabled="true" class="colorsList">
-                            <button onclick="addColor('P1', 'B')" class="manaBtn B"></button>
-                            <button onclick="addColor('P1', 'G')" class="manaBtn G"></button>
-                            <button onclick="addColor('P1', 'R')" class="manaBtn R"></button>
-                            <button onclick="addColor('P1', 'U')" class="manaBtn U"></button>
-                            <button onclick="addColor('P1', 'W')" class="manaBtn W"></button>
-                            <button onclick="clearColors('P1')" class="clearBtn">CLR</button>
-                            <button onclick="flipPlayer('P1')" class="flipBtn">Flip</button>
-                        </div>
-                    </div>
-                </div>
-            </td>
+        <tr id="allPlayers" class="playerSlots">
         </tr>
     </table>
     <div class="hud">
@@ -42,4 +18,5 @@
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
