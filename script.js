@@ -83,8 +83,12 @@ function basePlayer(name) {
         var mydiv = document.createElement("div");
         element.appendChild(mydiv);
         mydiv.classList.add("player");
-        // the ends of the diagonal gradient are tiny, so double them up
-        colorString = this.colors.join("");
+        if (this.colors.length > 0) {
+
+            colorString = this.colors.join("");
+        } else {
+            colorString = "WUBRG";
+        }
         styleString = gradStyleString(colorString);
         // console.log(this.name + " background = " + styleString);
         mydiv.style.background = styleString;
@@ -237,17 +241,22 @@ function playerManager() {
         element.appendChild(table);
         var row = table.insertRow();
         for (var i = 0; i < this.players.length; i++) {
+            // loop through list of players, for each one creating HTML table column
+            // and render those players each into their own column
             console.log("rendering player " + i);
             var col = row.insertCell();
             this.players[i].render(col);
         }
 
-        // loop through list of players, for each one creating HTML table column
-        // and render those players each into their own column
-    }
+    };
     this.refresh = function() {
         this.render(this.renderElement);
-    }
+    };
+    this.reset = function() {
+        this.count = 0;
+        var l = this.players.length;
+        this.players.splice(0, l);
+    };
 
 }
 
@@ -294,6 +303,8 @@ function gradientString(colors) {
 
 function gradStyleString(colorString) {
     if (colorString.length > 0) {
+        // the ends of the diagonal gradient are tiny, so double them up
+
         colorString = colorString[0] + colorString + colorString[colorString.length - 1];
 
         return "linear-gradient(135deg," + gradientString(colorString.split("")) + ")";
@@ -328,3 +339,11 @@ function playSixty() {
     }
     manager.refresh();
 };
+
+function reset() {
+    manager.reset();
+    for (var i = 0; i < 2; i++) {
+        manager.addPlayer();
+        manager.refresh();
+    }
+}
