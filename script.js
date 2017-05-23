@@ -259,10 +259,18 @@ function playerManager() {
     };
 
 }
-
+// ========== Storage ==========
+//determine if local storage is available
+if (typeof(Storage) !== "undefined") {
+    // Code for localStorage/sessionStorage.
+} else {
+    // Sorry! No Web Storage support..
+    alert("storage not available! :(")
+}
 
 // ========== Globals ==========
 var manager = new playerManager();
+var loadedManager = 
 manager.render(document.getElementById("allPlayers"));
 // add the first and second players
 for (var i = 0; i < 2; i++) {
