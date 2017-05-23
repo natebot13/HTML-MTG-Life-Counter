@@ -8,24 +8,24 @@ function basePlayer(name) {
     this.flipped = false;
     this.flip = function() {
         this.flipped = !this.flipped;
-    }
+    };
     this.clearColors = function() {
         this.colors = [];
-    }
+    };
     this.refresh = function() {
         this.render(this.renderElement);
     };
     this.getColors = function() {
-        return this.colors
+        return this.colors;
     };
     this.getColorString = function() {
         return this.colors.join(",");
     };
     this.getLife = function() {
-        return this.life
+        return this.life;
     };
     this.getName = function() {
-        return this.playerName
+        return this.playerName;
     };
     this.xcrementLife = function(n) {
         // console.log("Attempt to add " + n + " life to " + this.name);
@@ -33,40 +33,37 @@ function basePlayer(name) {
         // console.log(this.name + ".life=" + this.life);
     };
     this.setColors = function(colorString) {
-        colorString = colorString[0] + colorString + colorString[colorString.length - 1]
-        var gradString = ""
+        colorString =
+            colorString[0] + colorString + colorString[colorString.length - 1];
+        var gradString = "";
         for (var i = 0; i < colorString.length; i++) {
             var c = colorString[i].toLowerCase();
             if (c === "r") {
                 // gradString += "red"
-                gradString += "#E13C1E"
-            } else
-            if (c === "g") {
+                gradString += "#E13C1E";
+            } else if (c === "g") {
                 // gradString += "green"
-                gradString += "#336600"
-            } else
-            if (c === "u") {
+                gradString += "#336600";
+            } else if (c === "u") {
                 // gradString += "blue"
-                gradString += "#0066cc"
-            } else
-            if (c === "w") {
+                gradString += "#0066cc";
+            } else if (c === "w") {
                 // gradString += "white"
-                gradString += "#dce0bb"
-            } else
-            if (c === "b") {
+                gradString += "#dce0bb";
+            } else if (c === "b") {
                 // gradString += "black"
-                gradString += "#232323"
+                gradString += "#232323";
             }
             if (i != colorString.length - 1) {
-                gradString += ","
+                gradString += ",";
             }
         }
         // console.log("Set " + this.playerName + " background to " + gradString)
-        this.colors.push(colorString)
+        this.colors.push(colorString);
     };
     this.getColorsStyle = function() {
         if (this.colors.length > 1) {
-            this.colors = "linear-gradient(135deg," + this.colors + ")"
+            this.colors = "linear-gradient(135deg," + this.colors + ")";
         }
         return gradString;
     };
@@ -84,7 +81,6 @@ function basePlayer(name) {
         element.appendChild(mydiv);
         mydiv.classList.add("player");
         if (this.colors.length > 0) {
-
             colorString = this.colors.join("");
         } else {
             colorString = "WUBRG";
@@ -95,15 +91,13 @@ function basePlayer(name) {
         if (this.flipped) {
             mydiv.style.transform = "rotate(180deg)";
         } else {
-
             mydiv.style.transform = "";
         }
-
 
         // I don't remember what texture is for
         var textureDiv = document.createElement("div");
         mydiv.appendChild(textureDiv);
-        textureDiv.classList.add("texture")
+        textureDiv.classList.add("texture");
 
         // another containing element
         var boxDiv = document.createElement("div");
@@ -113,7 +107,7 @@ function basePlayer(name) {
         // player name input
         var nameInput = document.createElement("input");
         boxDiv.appendChild(nameInput);
-        nameInput.classList.add("playerName")
+        nameInput.classList.add("playerName");
         nameInput.placeholder = name;
         nameInput.value = this.name;
 
@@ -137,12 +131,15 @@ function basePlayer(name) {
             var n = adds[i];
             // nested function definitions to force evaluation of required variables
             // AKA lots of closure nonsense
-            btn.addEventListener("click", function(N) {
-                return function() {
-                    that.xcrementLife(N);
-                    that.refresh();
-                }
-            }(n))
+            btn.addEventListener(
+                "click",
+                (function(N) {
+                    return function() {
+                        that.xcrementLife(N);
+                        that.refresh();
+                    };
+                })(n)
+            );
         }
 
         // life display span
@@ -163,12 +160,15 @@ function basePlayer(name) {
             minusDiv.appendChild(btn);
             btn.innerHTML = subs[i];
             var n = subs[i];
-            btn.addEventListener("click", function(N) {
-                return function() {
-                    that.xcrementLife(N);
-                    that.refresh();
-                }
-            }(n))
+            btn.addEventListener(
+                "click",
+                (function(N) {
+                    return function() {
+                        that.xcrementLife(N);
+                        that.refresh();
+                    };
+                })(n)
+            );
         }
 
         // MTG color list
@@ -185,15 +185,17 @@ function basePlayer(name) {
             boxDiv.appendChild(btn);
             btn.classList.add("manaBtn");
             btn.classList.add(letters[i]);
-            btn.addEventListener("click", function(c) {
-                return function() {
-                    that.colors.push(c);
-                    // console.log(that.name + " add color " + c + " => " + that.colors);
-                    that.refresh();
-                }
-            }(letters[i]))
-
-        };
+            btn.addEventListener(
+                "click",
+                (function(c) {
+                    return function() {
+                        that.colors.push(c);
+                        // console.log(that.name + " add color " + c + " => " + that.colors);
+                        that.refresh();
+                    };
+                })(letters[i])
+            );
+        }
 
         // clear colors
         var clearColorsBtn = document.createElement("button");
@@ -214,9 +216,7 @@ function basePlayer(name) {
             that.refresh();
         });
     };
-
-};
-
+}
 
 function playerManager() {
     this.players = [];
@@ -247,7 +247,6 @@ function playerManager() {
             var col = row.insertCell();
             this.players[i].render(col);
         }
-
     };
     this.refresh = function() {
         this.render(this.renderElement);
@@ -257,20 +256,23 @@ function playerManager() {
         var l = this.players.length;
         this.players.splice(0, l);
     };
-
 }
 // ========== Storage ==========
+var isStorageAvailable = false;
 //determine if local storage is available
-if (typeof(Storage) !== "undefined") {
+if (typeof Storage !== "undefined") {
     // Code for localStorage/sessionStorage.
+    isStorageAvailable = true;
 } else {
     // Sorry! No Web Storage support..
-    alert("storage not available! :(")
+    alert("storage not available! :(");
 }
 
 // ========== Globals ==========
-var manager = new playerManager();
-var loadedManager = 
+if (isStorageAvailable) {
+} else {
+    var manager = new playerManager();
+}
 manager.render(document.getElementById("allPlayers"));
 // add the first and second players
 for (var i = 0; i < 2; i++) {
@@ -287,40 +289,40 @@ function gradientString(colors) {
         if (c === "r") {
             // gradString += "red"
             grads.push("#E13C1E");
-        } else
-        if (c === "g") {
+        } else if (c === "g") {
             // grads.push("green");
             grads.push("#336600");
-        } else
-        if (c === "u") {
+        } else if (c === "u") {
             // grads.push("blue");
             grads.push("#0066cc");
-        } else
-        if (c === "w") {
+        } else if (c === "w") {
             // grads.push("white");
             grads.push("#dce0bb");
-        } else
-        if (c === "b") {
+        } else if (c === "b") {
             // grads.push("black");
             grads.push("#232323");
         }
     }
     // console.log("grads " + grads);
     return grads.join(",");
-};
+}
 
 function gradStyleString(colorString) {
     if (colorString.length > 0) {
         // the ends of the diagonal gradient are tiny, so double them up
 
-        colorString = colorString[0] + colorString + colorString[colorString.length - 1];
+        colorString =
+            colorString[0] + colorString + colorString[colorString.length - 1];
 
-        return "linear-gradient(135deg," + gradientString(colorString.split("")) + ")";
+        return (
+            "linear-gradient(135deg," +
+            gradientString(colorString.split("")) +
+            ")"
+        );
     } else {
         return "linear-gradient(135deg,#111111)";
     }
-};
-
+}
 
 var addPlayer = function() {
     manager.addPlayer();
@@ -329,24 +331,23 @@ var addPlayer = function() {
     manager.render(document.getElementById("allPlayers"));
 };
 
-
 function replaceAll(source, search, replace) {
     return source.split(search).join(replace);
-};
+}
 
 function playCommander() {
     for (var i = manager.players.length - 1; i >= 0; i--) {
         manager.players[i].life = 40;
     }
     manager.refresh();
-};
+}
 
 function playSixty() {
     for (var i = manager.players.length - 1; i >= 0; i--) {
         manager.players[i].life = 20;
     }
     manager.refresh();
-};
+}
 
 function reset() {
     manager.reset();
