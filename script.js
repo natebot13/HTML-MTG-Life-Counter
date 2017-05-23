@@ -1,38 +1,48 @@
+"use strict";
+
 var numPlayers = 1;
 
-function basePlayer(name) {
-    this.name = name;
-    this.life = 20;
-    this.colors = "WUBRG".split("");
-    this.renderElement = NaN;
-    this.flipped = false;
-    this.flip = function() {
+class basePlayer {
+    constructor(name) {
+        this.name = name;
+        this.life = 20;
+        this.colors = "WUBRG".split("");
+        this.renderElement = NaN;
+        this.flipped = false;
+        this.colorString = "";
+    }
+    unJSON(json_obj) {
+        for (var v in json_obj) {
+            this[v] = json_obj[v];
+        }
+    }
+    flip() {
         this.flipped = !this.flipped;
-    };
-    this.clearColors = function() {
+    }
+    clearColors() {
         this.colors = [];
-    };
-    this.refresh = function() {
+    }
+    refresh() {
         this.render(this.renderElement);
-    };
-    this.getColors = function() {
+    }
+    getColors() {
         return this.colors;
-    };
-    this.getColorString = function() {
+    }
+    getColorString() {
         return this.colors.join(",");
-    };
-    this.getLife = function() {
+    }
+    getLife() {
         return this.life;
-    };
-    this.getName = function() {
+    }
+    getName() {
         return this.playerName;
-    };
-    this.xcrementLife = function(n) {
+    }
+    xcrementLife(n) {
         // console.log("Attempt to add " + n + " life to " + this.name);
         this.life = this.life + n;
         // console.log(this.name + ".life=" + this.life);
-    };
-    this.setColors = function(colorString) {
+    }
+    setColors(colorString) {
         colorString =
             colorString[0] + colorString + colorString[colorString.length - 1];
         var gradString = "";
@@ -60,14 +70,14 @@ function basePlayer(name) {
         }
         // console.log("Set " + this.playerName + " background to " + gradString)
         this.colors.push(colorString);
-    };
-    this.getColorsStyle = function() {
+    }
+    getColorsStyle() {
         if (this.colors.length > 1) {
             this.colors = "linear-gradient(135deg," + this.colors + ")";
         }
         return gradString;
-    };
-    this.render = function(element) {
+    }
+    render(element) {
         // memorize which element to render to/refresh
         this.renderElement = element;
         // delete all child nodes (useful for case of refresh)
@@ -80,12 +90,13 @@ function basePlayer(name) {
         var mydiv = document.createElement("div");
         element.appendChild(mydiv);
         mydiv.classList.add("player");
+        var colorString = "";
         if (this.colors.length > 0) {
             colorString = this.colors.join("");
         } else {
             colorString = "WUBRG";
         }
-        styleString = gradStyleString(colorString);
+        var styleString = gradStyleString(colorString);
         // console.log(this.name + " background = " + styleString);
         mydiv.style.background = styleString;
         if (this.flipped) {
@@ -215,21 +226,29 @@ function basePlayer(name) {
             that.flip();
             that.refresh();
         });
-    };
+    }
 }
 
-function playerManager() {
-    this.players = [];
-    this.count = 0;
-    this.renderElement = NaN;
-    this.addPlayer = function() {
+class playerManager {
+    constructor() {
+        this.players = [];
+        this.count = 0;
+        this.renderElement = NaN;
+    }
+    unJSON(json_obj) {
+        var plist = json_obj["players"];
+        for (var v in plist) {
+            this.addPlayer();
+        }
+    }
+    addPlayer() {
         this.players.push(new basePlayer("Planeswalker" + this.count));
         this.render(this.renderElement);
         // once rendered, clear the colors so that the expected color change happens on first click
         this.players[this.count].clearColors();
         this.count++;
-    };
-    this.render = function(element) {
+    }
+    render(element) {
         this.renderElement = element;
         // loop through target containing element and delete all children
         for (var i = element.children.length - 1; i >= 0; i--) {
@@ -247,15 +266,15 @@ function playerManager() {
             var col = row.insertCell();
             this.players[i].render(col);
         }
-    };
-    this.refresh = function() {
+    }
+    refresh() {
         this.render(this.renderElement);
-    };
-    this.reset = function() {
+    }
+    reset() {
         this.count = 0;
         var l = this.players.length;
         this.players.splice(0, l);
-    };
+    }
 }
 // ========== Storage ==========
 var isStorageAvailable = false;
@@ -269,9 +288,18 @@ if (typeof Storage !== "undefined") {
 }
 
 // ========== Globals ==========
+var manager = new playerManager();
 if (isStorageAvailable) {
-} else {
-    var manager = new playerManager();
+    var item = localStorage.getItem("savedManager");
+    // alert(item);
+    // loading from storage disabled
+    if (item != null && false) {
+        try {
+            manager = JSON.parse(item);
+        } catch (e) {
+            manager = new playerManager();
+        }
+    }
 }
 manager.render(document.getElementById("allPlayers"));
 // add the first and second players
@@ -356,3 +384,7 @@ function reset() {
         manager.refresh();
     }
 }
+
+setInterval(function() {
+    localStorage.setItem("savedManager", JSON.stringify(manager));
+}, 5000);
