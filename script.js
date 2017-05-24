@@ -2,7 +2,7 @@
 
 var numPlayers = 1;
 
-class basePlayer {
+class BasePlayer {
     constructor(name) {
         this.name = name;
         this.life = 20;
@@ -12,9 +12,16 @@ class basePlayer {
         this.colorString = "";
     }
     static unJSON(json_obj) {
+        var p = new BasePlayer();
+        // debug the deserialized player attributes
+        // console.log("loading JSON into self:");
+        // console.log("player data: " + json_obj);
         for (var v in json_obj) {
-            this[v] = json_obj[v];
+            // debug individual attribute values
+            // console.log("Setting this.[" + v + "] to " + json_obj[v]);
+            p[v] = json_obj[v];
         }
+        return p;
     }
     flip() {
         this.flipped = !this.flipped;
@@ -237,13 +244,21 @@ class playerManager {
     }
     static unJSON(json_obj) {
         var plist = json_obj["players"];
+        var pm = new playerManager();
+        // display what data was deserialized
+        // console.log(Object.keys(json_obj));
         for (var v in plist) {
-            this.addPlayer();
+            var p = BasePlayer.unJSON(plist[v]);
+            pm.loadExistingPlayer(p);
         }
+        return pm;
+    }
+    loadExistingPlayer(p) {
+        this.players.push(p);
+        this.count++;
     }
     addPlayer() {
-        this.players.push(new basePlayer("Planeswalker" + this.count));
-        this.render(this.renderElement);
+        this.players.push(new BasePlayer(""));
         // once rendered, clear the colors so that the expected color change happens on first click
         this.players[this.count].clearColors();
         this.count++;
@@ -262,7 +277,7 @@ class playerManager {
         for (var i = 0; i < this.players.length; i++) {
             // loop through list of players, for each one creating HTML table column
             // and render those players each into their own column
-            console.log("rendering player " + i);
+            // console.log("rendering player " + i);
             var col = row.insertCell();
             this.players[i].render(col);
         }
@@ -290,21 +305,26 @@ if (typeof Storage !== "undefined") {
 // ========== Globals ==========
 var manager = new playerManager();
 if (isStorageAvailable) {
-    var item = localStorage.getItem("savedManager");
-    // alert(item);
-    // loading from storage disabled
-    if (item != null && false) {
+    var item = JSON.parse(localStorage.getItem("savedManager"));
+    // console.log(item);
+    if (item != null) {
         try {
-            manager = JSON.parse(item);
+            manager = playerManager.unJSON(item);
         } catch (e) {
             manager = new playerManager();
+            console.log(e);
+            alert(e);
         }
     }
 }
+// debug manager attributes
+// console.log(manager);
 manager.render(document.getElementById("allPlayers"));
 // add the first and second players
-for (var i = 0; i < 2; i++) {
-    manager.addPlayer();
+if (manager.players.length < 2) {
+    for (var i = 0; i < 2; i++) {
+        manager.addPlayer();
+    }
 }
 // display it
 manager.refresh();
@@ -354,6 +374,7 @@ function gradStyleString(colorString) {
 
 var addPlayer = function() {
     manager.addPlayer();
+    manager.refresh();
     console.log("all players: " + manager.players);
     console.log("Added player " + String(numPlayers));
     manager.render(document.getElementById("allPlayers"));
@@ -386,5 +407,7 @@ function reset() {
 }
 
 setInterval(function() {
-    localStorage.setItem("savedManager", JSON.stringify(manager));
+    var serialized = JSON.stringify(manager);
+    console.log("saving: " + serialized);
+    localStorage.setItem("savedManager", serialized);
 }, 5000);
