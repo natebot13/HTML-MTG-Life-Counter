@@ -11,7 +11,7 @@ class basePlayer {
         this.flipped = false;
         this.colorString = "";
     }
-    unJSON(json_obj) {
+    static unJSON(json_obj) {
         for (var v in json_obj) {
             this[v] = json_obj[v];
         }
@@ -235,7 +235,7 @@ class playerManager {
         this.count = 0;
         this.renderElement = NaN;
     }
-    unJSON(json_obj) {
+    static unJSON(json_obj) {
         var plist = json_obj["players"];
         for (var v in plist) {
             this.addPlayer();
