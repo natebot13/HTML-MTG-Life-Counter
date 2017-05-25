@@ -408,6 +408,6 @@ function reset() {
 
 setInterval(function() {
     var serialized = JSON.stringify(manager);
-    console.log("saving: " + serialized);
+    // console.log("saving: " + serialized);
     localStorage.setItem("savedManager", serialized);
 }, 5000);

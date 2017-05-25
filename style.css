@@ -157,3 +157,7 @@ button {
     border: none;
     border-spacing: 0;
 }
+
+#allPLayers {
+    width: 100%;
+}
