@@ -348,7 +348,7 @@ function gradientString(colors) {
             grads.push("#dce0bb");
         } else if (c === "b") {
             // grads.push("black");
-            grads.push("#232323");
+            grads.push("#444444");
         }
     }
     // console.log("grads " + grads);
