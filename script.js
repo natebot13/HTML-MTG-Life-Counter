@@ -145,7 +145,7 @@ class BasePlayer {
         for (var i = adds.length - 1; i >= 0; i--) {
             var btn = document.createElement("button");
             plusDiv.appendChild(btn);
-            btn.innerHTML = adds[i];
+            btn.innerHTML = "+" + adds[i];
             var n = adds[i];
             // nested function definitions to force evaluation of required variables
             // AKA lots of closure nonsense
