@@ -84,19 +84,20 @@ class BasePlayer {
         }
         return gradString;
     }
-    render(element) {
-        // memorize which element to render to/refresh
-        this.renderElement = element;
+    render(containingElement) {
+        // memorize which containingElement to render to/refresh
+        this.renderElement = containingElement;
         // delete all child nodes (useful for case of refresh)
-        for (var i = element.children.length - 1; i >= 0; i--) {
-            element.removeChild(element.children[i]);
+        for (var i = containingElement.children.length - 1; i >= 0; i--) {
+            containingElement.removeChild(containingElement.children[i]);
         }
         // evaluate a reference to self
         var that = this;
+
         // the whole player thing
-        var mydiv = document.createElement("div");
-        element.appendChild(mydiv);
-        mydiv.classList.add("player");
+        var playerCard = document.createElement("div");
+        containingElement.appendChild(playerCard);
+        playerCard.classList.add("player");
         var colorString = "";
         if (this.colors.length > 0) {
             colorString = this.colors.join("");
@@ -104,27 +105,44 @@ class BasePlayer {
             colorString = "WUBRG";
         }
         var styleString = gradStyleString(colorString);
-        // console.log(this.name + " background = " + styleString);
-        mydiv.style.background = styleString;
-        if (this.flipped) {
-            mydiv.style.transform = "rotate(180deg)";
-        } else {
-            mydiv.style.transform = "";
-        }
+        playerCard.style.background = styleString;
 
         // I don't remember what texture is for
         var textureDiv = document.createElement("div");
-        mydiv.appendChild(textureDiv);
+        playerCard.appendChild(textureDiv);
         textureDiv.classList.add("texture");
 
-        // another containing element
+        // another containing containingElement
         var boxDiv = document.createElement("div");
         textureDiv.appendChild(boxDiv);
         boxDiv.classList.add("box");
 
+        // finally, the meat of it.
+        // the card should have a top half for life
+        // and a bottom half for color
+        // only the top should flip
+
+        var topHalf = document.createElement("div");
+        textureDiv.appendChild(topHalf);
+        topHalf.classList.add("topHalf");
+        boxDiv.appendChild(topHalf);
+
+        // decide whether to render flipped
+        if (this.flipped) {
+            topHalf.style.transform = "rotate(180deg)";
+        } else {
+            topHalf.style.transform = "";
+        }
+
+
+        var bottomHalf = document.createElement("div");
+        textureDiv.appendChild(bottomHalf);
+        bottomHalf.classList.add("topHalf");
+        boxDiv.appendChild(bottomHalf);
+
         // player name input
         var nameInput = document.createElement("input");
-        boxDiv.appendChild(nameInput);
+        topHalf.appendChild(nameInput);
         nameInput.classList.add("playerName");
         nameInput.placeholder = name;
         nameInput.value = this.name;
@@ -137,7 +155,7 @@ class BasePlayer {
 
         // life adding buttons
         var plusDiv = document.createElement("div");
-        boxDiv.appendChild(plusDiv);
+        topHalf.appendChild(plusDiv);
         plusDiv.classList.add("xcrement");
 
         var adds = [5, 1];
@@ -162,13 +180,13 @@ class BasePlayer {
 
         // life display span
         var lifeDisplay = document.createElement("span");
-        boxDiv.appendChild(lifeDisplay);
+        topHalf.appendChild(lifeDisplay);
         lifeDisplay.classList.add("lifeTotal");
         lifeDisplay.innerHTML = this.life;
 
         // life subtract buttons
         var minusDiv = document.createElement("div");
-        boxDiv.appendChild(minusDiv);
+        topHalf.appendChild(minusDiv);
         minusDiv.classList.add("xcrement");
 
         var subs = [-5, -1];
@@ -191,7 +209,7 @@ class BasePlayer {
 
         // MTG color list
         var colorList = document.createElement("input");
-        boxDiv.appendChild(colorList);
+        bottomHalf.appendChild(colorList);
         colorList.classList.add("colorsList");
         colorList.disabled = true;
         colorList.value = this.colors.join("");
@@ -200,7 +218,7 @@ class BasePlayer {
         var letters = "WUBRG".split("").reverse();
         for (var i = letters.length - 1; i >= 0; i--) {
             var btn = document.createElement("button");
-            boxDiv.appendChild(btn);
+            bottomHalf.appendChild(btn);
             btn.classList.add("manaBtn");
             btn.classList.add(letters[i]);
             btn.addEventListener(
@@ -217,7 +235,7 @@ class BasePlayer {
 
         // clear colors
         var clearColorsBtn = document.createElement("button");
-        boxDiv.appendChild(clearColorsBtn);
+        bottomHalf.appendChild(clearColorsBtn);
         clearColorsBtn.classList.add("clearBtn");
         clearColorsBtn.innerHTML = "CLR";
         clearColorsBtn.addEventListener("click", function() {
@@ -226,7 +244,7 @@ class BasePlayer {
 
         // flip button
         var flipButton = document.createElement("button");
-        boxDiv.appendChild(flipButton);
+        bottomHalf.appendChild(flipButton);
         flipButton.classList.add("flipBtn");
         flipButton.innerHTML = "Flip";
         flipButton.addEventListener("click", function() {
@@ -263,16 +281,16 @@ class playerManager {
         this.players[this.count].clearColors();
         this.count++;
     }
-    render(element) {
-        this.renderElement = element;
-        // loop through target containing element and delete all children
-        for (var i = element.children.length - 1; i >= 0; i--) {
-            element.removeChild(element.children[i]);
+    render(containingElement) {
+        this.renderElement = containingElement;
+        // loop through target containing containingElement and delete all children
+        for (var i = containingElement.children.length - 1; i >= 0; i--) {
+            containingElement.removeChild(containingElement.children[i]);
         }
         // instantiate an HTML table
         var table = document.createElement("TABLE");
         // add it as a child of the rendering target
-        element.appendChild(table);
+        containingElement.appendChild(table);
         var row = table.insertRow();
         for (var i = 0; i < this.players.length; i++) {
             // loop through list of players, for each one creating HTML table column
