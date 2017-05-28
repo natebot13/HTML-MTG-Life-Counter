@@ -308,12 +308,12 @@ class playerManager {
         this.players.splice(0, l);
     }
     playCommander() {
-        for (var i = this.players.length - 1; i > 0; i--) {
+        for (var i = this.players.length - 1; i >= 0; i--) {
             this.players[i].life = 40;
         }
     }
     playSixty() {
-        for (var i = this.players.length - 1; i > 0; i--) {
+        for (var i = this.players.length - 1; i >= 0; i--) {
             this.players[i].life = 20;
         }
 
