@@ -134,7 +134,6 @@ class BasePlayer {
             topHalf.style.transform = "";
         }
 
-
         var bottomHalf = document.createElement("div");
         textureDiv.appendChild(bottomHalf);
         bottomHalf.classList.add("topHalf");
@@ -390,12 +389,19 @@ function gradStyleString(colorString) {
     }
 }
 
+function saveGameState() {
+    var serialized = JSON.stringify(manager);
+    // console.log("saving: " + serialized);
+    localStorage.setItem("savedManager", serialized);
+}
+
 var addPlayer = function() {
     manager.addPlayer();
     manager.refresh();
     console.log("all players: " + manager.players);
     console.log("Added player " + String(numPlayers));
     manager.render(document.getElementById("allPlayers"));
+    saveGameState();
 };
 
 function replaceAll(source, search, replace) {
@@ -407,6 +413,7 @@ function playCommander() {
         manager.players[i].life = 40;
     }
     manager.refresh();
+    saveGameState();
 }
 
 function playSixty() {
@@ -414,6 +421,7 @@ function playSixty() {
         manager.players[i].life = 20;
     }
     manager.refresh();
+    saveGameState();
 }
 
 function reset() {
@@ -422,10 +430,9 @@ function reset() {
         manager.addPlayer();
         manager.refresh();
     }
+    saveGameState();
 }
 
 setInterval(function() {
-    var serialized = JSON.stringify(manager);
-    // console.log("saving: " + serialized);
-    localStorage.setItem("savedManager", serialized);
+    saveGameState;
 }, 5000);
