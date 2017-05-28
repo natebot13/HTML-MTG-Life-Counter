@@ -164,3 +164,18 @@ button {
 #allPLayers {
     width: 100%;
 }
+
+.safeButtons {
+    float: left;
+    display: inline;
+}
+
+.warningButtons {
+    display: inline;
+    float: right;
+}
+
+.warningButtons button{
+    background-color: red;
+    border-color: red;
+}

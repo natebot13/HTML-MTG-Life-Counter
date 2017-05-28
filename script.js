@@ -307,6 +307,17 @@ class playerManager {
         var l = this.players.length;
         this.players.splice(0, l);
     }
+    playCommander() {
+        for (var i = this.players.length - 1; i > 0; i--) {
+            this.players[i].life = 40;
+        }
+    }
+    playSixty() {
+        for (var i = this.players.length - 1; i > 0; i--) {
+            this.players[i].life = 20;
+        }
+
+    }
 }
 // ========== Storage ==========
 var isStorageAvailable = false;
@@ -389,8 +400,8 @@ function gradStyleString(colorString) {
     }
 }
 
-function saveGameState() {
-    var serialized = JSON.stringify(manager);
+function serializeGameManager(target_manager) {
+    var serialized = JSON.stringify(target_manager);
     // console.log("saving: " + serialized);
     localStorage.setItem("savedManager", serialized);
 }
@@ -401,7 +412,7 @@ var addPlayer = function() {
     console.log("all players: " + manager.players);
     console.log("Added player " + String(numPlayers));
     manager.render(document.getElementById("allPlayers"));
-    saveGameState();
+    serializeGameManager(manager);
 };
 
 function replaceAll(source, search, replace) {
@@ -409,19 +420,15 @@ function replaceAll(source, search, replace) {
 }
 
 function playCommander() {
-    for (var i = manager.players.length - 1; i >= 0; i--) {
-        manager.players[i].life = 40;
-    }
+    manager.playCommander();
     manager.refresh();
-    saveGameState();
+    serializeGameManager(manager);
 }
 
 function playSixty() {
-    for (var i = manager.players.length - 1; i >= 0; i--) {
-        manager.players[i].life = 20;
-    }
+    manager.playSixty();
     manager.refresh();
-    saveGameState();
+    serializeGameManager(manager);
 }
 
 function reset() {
@@ -430,9 +437,9 @@ function reset() {
         manager.addPlayer();
         manager.refresh();
     }
-    saveGameState();
+    serializeGameManager(manager);
 }
 
 setInterval(function() {
-    saveGameState;
+    serializeGameManager;
 }, 5000);
