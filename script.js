@@ -316,7 +316,6 @@ class playerManager {
         for (var i = this.players.length - 1; i >= 0; i--) {
             this.players[i].life = 20;
         }
-
     }
 }
 // ========== Storage ==========
