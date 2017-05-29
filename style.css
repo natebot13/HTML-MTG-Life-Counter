@@ -1,3 +1,13 @@
+/*disable auto zooming on typing in input field*/
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+  select:focus,
+  textarea:focus,
+  input:focus {
+    font-size: 16px;
+    background: #eee;
+  }
+}
+
 html,
 body,
 table {
@@ -100,9 +110,13 @@ button {
 }
 
 .addBtn {
-    width: auto;
+    width: 100px;
+    height: 100px;
 }
 
+.hudBtn{
+    width: auto;
+}
 .flipBtn {
     font-size: 40px;
     display: block;

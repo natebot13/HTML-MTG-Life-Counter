@@ -10,6 +10,7 @@ class BasePlayer {
         this.renderElement = NaN;
         this.flipped = false;
         this.colorString = "";
+        this.editing = true;
     }
     static unJSON(json_obj) {
         var p = new BasePlayer();
@@ -83,6 +84,9 @@ class BasePlayer {
             this.colors = "linear-gradient(135deg," + this.colors + ")";
         }
         return gradString;
+    }
+    toggleEditing() {
+        this.editing = !this.editing;
     }
     render(containingElement) {
         // memorize which containingElement to render to/refresh
@@ -161,6 +165,7 @@ class BasePlayer {
         var btn = NaN;
         for (var i = adds.length - 1; i >= 0; i--) {
             var btn = document.createElement("button");
+            btn.classList.add("addBtn");
             plusDiv.appendChild(btn);
             btn.innerHTML = "+" + adds[i];
             var n = adds[i];
@@ -192,6 +197,7 @@ class BasePlayer {
         var btn = NaN;
         for (var i = subs.length - 1; i >= 0; i--) {
             var btn = document.createElement("button");
+            btn.classList.add("addBtn");
             minusDiv.appendChild(btn);
             btn.innerHTML = subs[i];
             var n = subs[i];
@@ -206,50 +212,52 @@ class BasePlayer {
             );
         }
 
-        // MTG color list
-        var colorList = document.createElement("input");
-        bottomHalf.appendChild(colorList);
-        colorList.classList.add("colorsList");
-        colorList.disabled = true;
-        colorList.value = this.colors.join("");
+        if (this.editing) {
+            // MTG color list
+            var colorList = document.createElement("input");
+            bottomHalf.appendChild(colorList);
+            colorList.classList.add("colorsList");
+            colorList.disabled = true;
+            colorList.value = this.colors.join("");
 
-        // color setting buttons
-        var letters = "WUBRG".split("").reverse();
-        for (var i = letters.length - 1; i >= 0; i--) {
-            var btn = document.createElement("button");
-            bottomHalf.appendChild(btn);
-            btn.classList.add("manaBtn");
-            btn.classList.add(letters[i]);
-            btn.addEventListener(
-                "click",
-                (function(c) {
-                    return function() {
-                        that.colors.push(c);
-                        // console.log(that.name + " add color " + c + " => " + that.colors);
-                        that.refresh();
-                    };
-                })(letters[i])
-            );
+            // color setting buttons
+            var letters = "WUBRG".split("").reverse();
+            for (var i = letters.length - 1; i >= 0; i--) {
+                var btn = document.createElement("button");
+                bottomHalf.appendChild(btn);
+                btn.classList.add("manaBtn");
+                btn.classList.add(letters[i]);
+                btn.addEventListener(
+                    "click",
+                    (function(c) {
+                        return function() {
+                            that.colors.push(c);
+                            // console.log(that.name + " add color " + c + " => " + that.colors);
+                            that.refresh();
+                        };
+                    })(letters[i])
+                );
+            }
+
+            // clear colors
+            var clearColorsBtn = document.createElement("button");
+            bottomHalf.appendChild(clearColorsBtn);
+            clearColorsBtn.classList.add("clearBtn");
+            clearColorsBtn.innerHTML = "CLR";
+            clearColorsBtn.addEventListener("click", function() {
+                that.clearColors();
+            });
+
+            // flip button
+            var flipButton = document.createElement("button");
+            bottomHalf.appendChild(flipButton);
+            flipButton.classList.add("flipBtn");
+            flipButton.innerHTML = "Flip";
+            flipButton.addEventListener("click", function() {
+                that.flip();
+                that.refresh();
+            });
         }
-
-        // clear colors
-        var clearColorsBtn = document.createElement("button");
-        bottomHalf.appendChild(clearColorsBtn);
-        clearColorsBtn.classList.add("clearBtn");
-        clearColorsBtn.innerHTML = "CLR";
-        clearColorsBtn.addEventListener("click", function() {
-            that.clearColors();
-        });
-
-        // flip button
-        var flipButton = document.createElement("button");
-        bottomHalf.appendChild(flipButton);
-        flipButton.classList.add("flipBtn");
-        flipButton.innerHTML = "Flip";
-        flipButton.addEventListener("click", function() {
-            that.flip();
-            that.refresh();
-        });
     }
 }
 
@@ -258,6 +266,7 @@ class playerManager {
         this.players = [];
         this.count = 0;
         this.renderElement = NaN;
+        this.editing = true;
     }
     static unJSON(json_obj) {
         var plist = json_obj["players"];
@@ -278,6 +287,7 @@ class playerManager {
         this.players.push(new BasePlayer(""));
         // once rendered, clear the colors so that the expected color change happens on first click
         this.players[this.count].clearColors();
+        this.players[this.count].editing = this.editing;
         this.count++;
     }
     render(containingElement) {
@@ -296,7 +306,7 @@ class playerManager {
             // and render those players each into their own column
             // console.log("rendering player " + i);
             var col = row.insertCell();
-            this.players[i].render(col);
+            this.players[i].render(col, this.editing);
         }
     }
     refresh() {
@@ -317,6 +327,12 @@ class playerManager {
             this.players[i].life = 20;
         }
     }
+    toggleEditing() {
+        this.editing = !this.editing;
+        for (var i = this.players.length - 1; i >= 0; i--) {
+            this.players[i].editing = this.editing;
+        }
+    }
 }
 // ========== Storage ==========
 var isStorageAvailable = false;
@@ -326,7 +342,9 @@ if (typeof Storage !== "undefined") {
     isStorageAvailable = true;
 } else {
     // Sorry! No Web Storage support..
-    alert("storage not available! :(");
+    alert(
+        "Local storage is not available on your device, sessions will not be saved!"
+    );
 }
 
 // ========== Globals ==========
@@ -438,7 +456,10 @@ function reset() {
     }
     serializeGameManager(manager);
 }
-
+function doneEditing() {
+    manager.toggleEditing();
+    manager.refresh();
+}
 setInterval(function() {
     serializeGameManager;
 }, 5000);
