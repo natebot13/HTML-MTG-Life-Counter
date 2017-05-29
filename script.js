@@ -358,7 +358,7 @@ if (typeof Storage !== "undefined") {
 var manager = new PlayerManager();
 if (isStorageAvailable) {
     var objStr = localStorage.getItem("savedManager");
-    // alert("saved game state str:" + objStr);
+    alert("saved game state str:" + objStr);
     // console.log(item);
     if (objStr != null) {
         try {
@@ -465,11 +465,12 @@ function reset() {
     }
     serializeGameManager(manager);
 }
+
 function doneEditing() {
     manager.setEditing(!manager.editing);
     manager.refresh();
     serializeGameManager(manager);
 }
 setInterval(function() {
-    serializeGameManager;
+    serializeGameManager(manager);
 }, 5000);
