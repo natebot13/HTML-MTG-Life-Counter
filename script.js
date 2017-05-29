@@ -85,9 +85,6 @@ class BasePlayer {
         }
         return gradString;
     }
-    toggleEditing() {
-        this.editing = !this.editing;
-    }
     render(containingElement) {
         // memorize which containingElement to render to/refresh
         this.renderElement = containingElement;
@@ -261,7 +258,7 @@ class BasePlayer {
     }
 }
 
-class playerManager {
+class PlayerManager {
     constructor() {
         this.players = [];
         this.count = 0;
@@ -270,7 +267,7 @@ class playerManager {
     }
     static unJSON(json_obj) {
         var plist = json_obj["players"];
-        var pm = new playerManager();
+        var pm = new PlayerManager();
         // display what data was deserialized
         // console.log(Object.keys(json_obj));
         for (var v in plist) {
@@ -327,8 +324,8 @@ class playerManager {
             this.players[i].life = 20;
         }
     }
-    toggleEditing() {
-        this.editing = !this.editing;
+    setEditing(state) {
+        this.editing = state;
         for (var i = this.players.length - 1; i >= 0; i--) {
             this.players[i].editing = this.editing;
         }
@@ -348,15 +345,17 @@ if (typeof Storage !== "undefined") {
 }
 
 // ========== Globals ==========
-var manager = new playerManager();
+var manager = new PlayerManager();
 if (isStorageAvailable) {
-    var item = JSON.parse(localStorage.getItem("savedManager"));
+    var objStr = localStorage.getItem("savedManager");
+    // alert("saved game state str:" + objStr);
     // console.log(item);
-    if (item != null) {
+    if (objStr != null) {
         try {
-            manager = playerManager.unJSON(item);
+            var item = JSON.parse(objStr);
+            manager = PlayerManager.unJSON(item);
         } catch (e) {
-            manager = new playerManager();
+            manager = new PlayerManager();
             console.log(e);
             alert(e);
         }
@@ -419,7 +418,7 @@ function gradStyleString(colorString) {
 
 function serializeGameManager(target_manager) {
     var serialized = JSON.stringify(target_manager);
-    // console.log("saving: " + serialized);
+    console.log("saving: " + serialized);
     localStorage.setItem("savedManager", serialized);
 }
 
@@ -457,8 +456,9 @@ function reset() {
     serializeGameManager(manager);
 }
 function doneEditing() {
-    manager.toggleEditing();
+    manager.setEditing(!manager.editing);
     manager.refresh();
+    serializeGameManager(manager);
 }
 setInterval(function() {
     serializeGameManager;
