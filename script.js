@@ -11,6 +11,7 @@ class BasePlayer {
         this.flipped = false;
         this.colorString = "";
         this.editing = true;
+        this.lifeDisplayElement = null;
     }
     static unJSON(json_obj) {
         var p = new BasePlayer();
@@ -47,7 +48,7 @@ class BasePlayer {
     }
     xcrementLife(n) {
         // console.log("Attempt to add " + n + " life to " + this.name);
-        this.life = this.life + n;
+        this.life += n;
         // console.log(this.name + ".life=" + this.life);
     }
     setColors(colorString) {
@@ -173,7 +174,7 @@ class BasePlayer {
                 (function(N) {
                     return function() {
                         that.xcrementLife(N);
-                        that.refresh();
+                        that.refreshLife();
                     };
                 })(n)
             );
@@ -181,6 +182,7 @@ class BasePlayer {
 
         // life display span
         var lifeDisplay = document.createElement("span");
+        this.lifeDisplayElement = lifeDisplay;
         topHalf.appendChild(lifeDisplay);
         lifeDisplay.classList.add("lifeTotal");
         lifeDisplay.innerHTML = this.life;
@@ -203,7 +205,7 @@ class BasePlayer {
                 (function(N) {
                     return function() {
                         that.xcrementLife(N);
-                        that.refresh();
+                        that.refreshLife();
                     };
                 })(n)
             );
@@ -254,6 +256,14 @@ class BasePlayer {
                 that.flip();
                 that.refresh();
             });
+        }
+    }
+    refreshLife() {
+        if (this.lifeDisplayElement != null) {
+            this.lifeDisplayElement.innerHTML = this.life;
+        } else {
+            alert("render element not found, instead refreshing")
+            this.refresh();
         }
     }
 }
