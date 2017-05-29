@@ -320,6 +320,7 @@ class PlayerManager {
         this.render(this.renderElement);
     }
     reset() {
+        this.setEditing(true);
         this.count = 0;
         var l = this.players.length;
         this.players.splice(0, l);
