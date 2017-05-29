@@ -8,6 +8,9 @@
   }
 }
 
+input {
+    font-size: 20em;
+}
 html,
 body,
 table {
