@@ -1,18 +1,44 @@
 <!-- <meta name="viewport" content="user-scalable=no" /> -->
 <html>
-
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="js/app.js"></script>
+<script src="js/controller.js"></script>
+<link rel="stylesheet" href="style.css">
 
 <head>
 </head>
 
 <body>
-
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <div class="playerSlots" style="display: grid; grid-template-columns: repeat({{utils.get_num_players()}}, 1fr);  grid-auto-rows: minmax(100px, auto);">
+            <div ng-repeat="player in players">
+                <div class="player box" style="grid-column: {{$index+1}}/{{utils.get_num_players()}}">
+                    <div class="playerName">
+                        <input ng-model="player.name"></input>
+                    </div>
+                    <p>
+                        <button ng-click="player.life = player.life - 5">-5</button>
+                        <button ng-click="player.life = player.life - 1">-1</button>
+                        <div class="lifeTotal">
+                            {{player.life}}
+                        </div>
+                        <button ng-click="player.life = player.life + 1">+1</button>
+                        <button ng-click="player.life = player.life + 5">+5</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <p>
+            <button ng-click="utils.add_player(utils.default_player());">
+                add player
+            </button>
+        </p>
+    </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
