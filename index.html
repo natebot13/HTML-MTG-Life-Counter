@@ -15,9 +15,14 @@
 
 <body>
     <div ng-app="myApp" ng-controller="myCtrl">
-        <div class="playerSlots" style="display: grid; grid-template-columns: repeat({{utils.get_num_players()}}, 1fr);  grid-auto-rows: minmax(100px, auto);">
+        <p>
+            <button ng-click="utils.add_player(utils.default_player());">
+                add player
+            </button>
+        </p>
+        <div class="" style="display: flex; flex-direction: row; flex-wrap: wrap">
             <div ng-repeat="player in players">
-                <div class="player box" style="grid-column: {{$index+1}}/{{utils.get_num_players()}}">
+                <div class="player box" style="">
                     <div class="playerName">
                         <input ng-model="player.name"></input>
                     </div>
@@ -33,11 +38,6 @@
                 </div>
             </div>
         </div>
-        <p>
-            <button ng-click="utils.add_player(utils.default_player());">
-                add player
-            </button>
-        </p>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
