@@ -38,7 +38,7 @@ body {
 .texture {
     height: 100%;
     background-image: url("images/mottled_BG_1.png");
-    background-repeat: no-repeat;
+    /*background-repeat: no-repeat;*/
     background-position: center center;
 }
 
@@ -179,6 +179,7 @@ button {
     flex-wrap: wrap;
     flex: flex-grow;
     justify-content: center;
+    margin: 5px;
 }
 
 .hudContainer {
