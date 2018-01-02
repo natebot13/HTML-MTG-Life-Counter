@@ -17,17 +17,17 @@
     <div ng-app="myApp" ng-controller="myCtrl">
         <div class="hudContainer">
             <div class="hudItem">
-                <button ng-click="utils.add_player(utils.default_player());">
+                <button class="hudBtn" ng-click="utils.add_player(utils.default_player());">
                     add player
                 </button>
             </div>
             <div class="hudItem">
-                <button ng-click="utils.set_all_life_totals(20);">
+                <button class="hudBtn" ng-click="utils.set_all_life_totals(20);">
                     20
                 </button>
             </div>
             <div class="hudItem">
-                <button ng-click="utils.set_all_life_totals(40);">
+                <button class="hudBtn" ng-click="utils.set_all_life_totals(40);">
                     40
                 </button>
             </div>
@@ -37,13 +37,13 @@
                 <div class="player" style="">
                     <input class="playerName" ng-model="player.name" tabindex="{{playerIndex+1}}"></input>
                     <p>
-                        <button ng-click="player.life = player.life + 5">+5</button>
-                        <button ng-click="player.life = player.life + 1">+1</button>
+                        <button class="lifeBtn" ng-click="player.life = player.life + 5">+5</button>
+                        <button class="lifeBtn" ng-click="player.life = player.life + 1">+1</button>
                         <div class="lifeTotal">
                             {{player.life}}
                         </div>
-                        <button ng-click="player.life = player.life - 1">-1</button>
-                        <button ng-click="player.life = player.life - 5">-5</button>
+                        <button class="lifeBtn" ng-click="player.life = player.life - 1">-1</button>
+                        <button class="lifeBtn" ng-click="player.life = player.life - 5">-5</button>
                     </p>
                 </div>
             </div>
