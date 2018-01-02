@@ -22,11 +22,18 @@ app.controller("myCtrl", ["$scope", function($scope) {
     var get_num_players = function() {
         return $scope.players.length;
     };
+    var set_all_life_totals = function(n) {
+        for (let i = 0; i < $scope.players.length; i++) {
+            $scope.players[i].life = n;
+        }
+
+    };
     $scope.utils = {
         create_player: create_player,
         default_player: default_player,
         add_player: add_player,
         get_num_players: get_num_players,
+        set_all_life_totals: set_all_life_totals,
     }
 
 }]);

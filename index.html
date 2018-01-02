@@ -15,14 +15,26 @@
 
 <body>
     <div ng-app="myApp" ng-controller="myCtrl">
-        <p>
-            <button ng-click="utils.add_player(utils.default_player());">
-                add player
-            </button>
-        </p>
-        <div class="playerBannersContainer" style="display: flex; flex-direction: row; flex-wrap: wrap; flex: flex-grow;">
+        <div class="hudContainer">
+            <div class="hudItem">
+                <button ng-click="utils.add_player(utils.default_player());">
+                    add player
+                </button>
+            </div>
+            <div class="hudItem">
+                <button ng-click="utils.set_all_life_totals(20);">
+                    20
+                </button>
+            </div>
+            <div class="hudItem">
+                <button ng-click="utils.set_all_life_totals(40);">
+                    40
+                </button>
+            </div>
+        </div>
+        <div class="playerBannersContainer" style="">
             <div ng-repeat="(playerIndex, player) in players">
-                <div class="player box" style="">
+                <div class="player" style="">
                     <input class="playerName" ng-model="player.name" tabindex="{{playerIndex+1}}"></input>
                     <p>
                         <button ng-click="player.life = player.life + 5">+5</button>
