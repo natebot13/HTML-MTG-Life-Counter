@@ -21,12 +21,19 @@ body {
     -ms-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
-    width: 100%;
     height: 100%;
-    margin: auto;
     text-align: center;
     background: linear-gradient( 135deg, #232323, #232323, #336600, #E13C1E, #0066cc, #dce0bb, #dce0bb);
-    color: #000000;
+    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-bottom: 9px;
+    width: 95%;
+    height: 98%;
+    /*border-radius: 20px;*/
+    border-color: white;
+    border: 2px solid white;
 }
 
 .texture {
@@ -36,21 +43,7 @@ body {
     background-position: center center;
 }
 
-.box {
-    margin: auto;
-    padding-top: 20px;
-    padding-bottom: 9px;
-    position: relative;
-    top: 50%;
-    width: 95%;
-    -webkit-transform: translatey(-50%);
-    -moz-transform: translatey(-50%);
-    -ms-transform: translatey(-50%);
-    -o-transform: translatey(-50%);
-    transform: translatey(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 20px;
-}
+
 
 @media (max-width: 580px) {
     .box {
@@ -77,12 +70,12 @@ body {
     display: block;
     margin: auto;
     font-size: 200%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.3);
     /*opacity: 0.5;*/
     width: auto;
 }
 
-.lifeNumber{
+.lifeNumber {
     opacity: 1;
 }
 
@@ -167,11 +160,10 @@ button {
     background-image: url("images/W_BW.png");
 }
 
-.playerSlots {
-    margin-right: -5px;
-    margin-left: -5px;
+.playerBannersContainer {
     border: none;
     border-spacing: 0;
+    height: 100%;
 }
 
 #allPLayers {
