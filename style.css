@@ -5,13 +5,14 @@
     textarea:focus,
     input:focus {
         font-size: 16px;
-        background: #eee;
+        background: #eeeeee;
     }
 }
 
 
 body {
     background: #333333;
+    font-family: 'Ubuntu';
 }
 
 
@@ -64,15 +65,16 @@ body {
 
 .lifeTotal {
     color: white;
-    display: block;
+    /*display: block;*/
     margin: auto;
-    font-size: 20vh;
     background: rgba(0, 0, 0, 0.3);
     /*opacity: 0.5;*/
     width: auto;
 }
 
 .lifeNumber {
+    font-size: 20vh;
+    line-height: 15vh;
     opacity: 1;
 }
 
@@ -84,8 +86,8 @@ button {
     margin-top: 5px;
     margin-right: 5px;
     margin-left: 5px;
-    height: 10vh;
-    width: 10vh;
+    height: 8vh;
+    width: 8vh;
     color: black;
 }
 
@@ -114,9 +116,13 @@ button {
     width: 60%;
 }
 
-.lifeBtn {
-    height: 10vh;
-    width: 10vh;
+.lifeButtonContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.lifeButton {
+    width: 100%;
 }
 
 .colorsList {

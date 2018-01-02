@@ -36,15 +36,20 @@
             <div ng-repeat="(playerIndex, player) in players">
                 <div class="player" style="">
                     <input class="playerName" ng-model="player.name" tabindex="{{playerIndex+1}}"></input>
-                    <p>
-                        <button class="lifeBtn" ng-click="player.life = player.life + 5">+5</button>
-                        <button class="lifeBtn" ng-click="player.life = player.life + 1">+1</button>
-                        <div class="lifeTotal">
+                    <div class="lifeButtonContainer">
+                        <button class="lifeButton" ng-click="player.life = player.life + 5">+5</button>
+                        <button class="lifeButton" ng-click="player.life = player.life + 1">+1</button>
+                    </div>
+                    <div class="lifeTotal">
+                        <span class="lifeNumber">
+
                             {{player.life}}
-                        </div>
-                        <button class="lifeBtn" ng-click="player.life = player.life - 1">-1</button>
-                        <button class="lifeBtn" ng-click="player.life = player.life - 5">-5</button>
-                    </p>
+                            </span>
+                    </div>
+                    <div class="lifeButtonContainer">
+                        <button class="lifeButton" ng-click="player.life = player.life - 1">-1</button>
+                        <button class="lifeButton" ng-click="player.life = player.life - 5">-5</button>
+                    </div>
                 </div>
             </div>
         </div>
