@@ -20,20 +20,20 @@
                 add player
             </button>
         </p>
-        <div class="" style="display: flex; flex-direction: row; flex-wrap: wrap">
+        <div class="" style="display: flex; flex-direction: row; flex-wrap: nowrap;">
             <div ng-repeat="player in players">
                 <div class="player box" style="">
-                    <div class="playerName">
-                        <input ng-model="player.name"></input>
-                    </div>
+                    <input class="playerName" ng-model="player.name"></input>
                     <p>
-                        <button ng-click="player.life = player.life - 5">-5</button>
-                        <button ng-click="player.life = player.life - 1">-1</button>
-                        <div class="lifeTotal">
-                            {{player.life}}
-                        </div>
-                        <button ng-click="player.life = player.life + 1">+1</button>
                         <button ng-click="player.life = player.life + 5">+5</button>
+                        <button ng-click="player.life = player.life + 1">+1</button>
+                        <div class="lifeTotal">
+                            <div class="lifeNumber">
+                                {{player.life}}
+                            </div>
+                        </div>
+                        <button ng-click="player.life = player.life - 1">-1</button>
+                        <button ng-click="player.life = player.life - 5">-5</button>
                     </p>
                 </div>
             </div>

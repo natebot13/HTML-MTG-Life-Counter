@@ -10,15 +10,8 @@
 }
 
 
-html,
-body,
-table {
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    font-family: sans-serif;
+body {
     background: black;
-    color: white;
 }
 
 
@@ -84,8 +77,13 @@ table {
     display: block;
     margin: auto;
     font-size: 200%;
-    background-color: black;
+    background: rgba(0,0,0,0.5);
+    /*opacity: 0.5;*/
     width: auto;
+}
+
+.lifeNumber{
+    opacity: 1;
 }
 
 button {
