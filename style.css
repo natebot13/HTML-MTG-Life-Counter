@@ -26,7 +26,6 @@ body {
     background: linear-gradient( 135deg, #232323, #232323, #336600, #E13C1E, #0066cc, #dce0bb, #dce0bb);
     padding-top: 20px;
     padding-bottom: 9px;
-    width: 95%;
     height: 98%;
     /*border-radius: 20px;*/
     border-color: white;
@@ -44,7 +43,7 @@ body {
 
 
 @media (max-width: 580px) {
-    .box {
+    .player {
         width: 100%;
     }
 }
@@ -164,10 +163,10 @@ button {
     height: 100%;
     width: 100%;
     display: flex;
-    padding: auto;
     flex-direction: row;
     flex-wrap: wrap;
     flex: flex-grow;
+    justify-content: center;
 }
 
 .hudContainer {
