@@ -37,7 +37,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex: flex-grow;
 }
 
 .texture {
@@ -45,6 +44,10 @@ body {
     background-image: url("images/mottled_BG_1.png");
     /*background-repeat: no-repeat;*/
     background-position: center center;
+}
+
+.playerNameContainer {
+    flex-grow: 0.5;
 }
 
 .playerName {
@@ -56,24 +59,23 @@ body {
     background: #FFFFFF;
 }
 
-.xcrement {
-    display: block;
-    margin: auto;
-}
 
 .lifeTotal {
     color: white;
-    /*display: block;*/
-    margin: auto;
     background: rgba(0, 0, 0, 0.3);
-    /*opacity: 0.5;*/
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 3;
+    align-items: center;
 }
 
 .lifeNumber {
-    /*font-size: 20vh;*/
-    /*line-height: 15vh;*/
     opacity: 1;
+    font-size: 5em;
+    margin: auto;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 button {
@@ -84,8 +86,8 @@ button {
     margin-top: 5px;
     margin-right: 5px;
     margin-left: 5px;
-    height: 8vh;
-    width: 8vh;
+    /*height: 100%;*/
+    width: 100%;
     color: black;
 }
 
@@ -115,8 +117,9 @@ button {
 }
 
 .lifeButtonContainer {
+    flex-grow: 1;
     display: flex;
-    /*justify-content: center;*/
+    justify-content: center;
 }
 
 .lifeButton {

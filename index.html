@@ -19,27 +19,25 @@
         <div class="display-1">
             Life Counter
         </div>
-        <div class="hudContainer">
-            <div class="hudItem">
-                <button class="hudBtn" ng-click="utils.add_player(utils.default_player());">
-                    add player
-                </button>
+        <p>
+            <div class="hudContainer">
+                <div class="hudItem">
+                    <button class="hudBtn" ng-click="utils.add_player(utils.default_player());">
+                        add player
+                    </button>
+                </div>
+                <div class="hudItem">
+                    <button class="hudBtn" ng-click="utils.set_all_life_totals(20);">20</button>
+                </div>
+                <div class="hudItem">
+                    <button class="hudBtn" ng-click="utils.set_all_life_totals(40);">40</button>
+                </div>
             </div>
-            <div class="hudItem">
-                <button class="hudBtn" ng-click="utils.set_all_life_totals(20);">
-                    20
-                </button>
-            </div>
-            <div class="hudItem">
-                <button class="hudBtn" ng-click="utils.set_all_life_totals(40);">
-                    40
-                </button>
-            </div>
-        </div>
+        </p>
         <div class="playerBannersContainer" style="">
             <div ng-repeat="(playerIndex, player) in players">
                 <div class="player">
-                    <div>
+                    <div class="playerNameContainer">
                         <input class="playerName" ng-model="player.name" tabindex="{{playerIndex+1}}"></input>
                     </div>
                     <div class="lifeButtonContainer">
@@ -47,7 +45,7 @@
                         <button class="lifeButton" ng-click="player.life = player.life + 5">+5</button>
                     </div>
                     <div class="lifeTotal">
-                        <span class="display-1">{{player.life}}</span>
+                        <div class="lifeNumber">{{player.life}}</div>
                     </div>
                     <div class="lifeButtonContainer">
                         <button class="lifeButton" ng-click="player.life = player.life - 1">-1</button>
@@ -57,10 +55,6 @@
             </div>
         </div>
     </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 
 </html>
