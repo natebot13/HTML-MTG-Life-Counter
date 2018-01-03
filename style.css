@@ -52,7 +52,7 @@ body {
     margin-top: 15px;
     border-radius: 10px;
     border: 2px #DDDDDD solid;
-    background: #DDDDDD;
+    background: #FFFFFF;
 }
 
 .xcrement {
@@ -70,15 +70,15 @@ body {
 }
 
 .lifeNumber {
-    font-size: 20vh;
-    line-height: 15vh;
+    /*font-size: 20vh;*/
+    /*line-height: 15vh;*/
     opacity: 1;
 }
 
 button {
-    border-radius: 5px;
-    border: 2px solid #DDDDDD;
-    background: #DDDDDD;
+    border-radius: 3px;
+    border: 3px solid #000000;
+    background: #CCCCCC;
     margin-bottom: 5px;
     margin-top: 5px;
     margin-right: 5px;
