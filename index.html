@@ -38,24 +38,20 @@
         </div>
         <div class="playerBannersContainer" style="">
             <div ng-repeat="(playerIndex, player) in players">
-                <div class="player" style="">
-                    <div class="texture">
+                <div class="player">
+                    <div>
                         <input class="playerName" ng-model="player.name" tabindex="{{playerIndex+1}}"></input>
-                        <div class="lifeButtonContainer">
-                            <button class="lifeButton" ng-click="player.life = player.life + 5">+5</button>
-                            <button class="lifeButton" ng-click="player.life = player.life + 1">+1</button>
-                        </div>
-                        <div class="lifeTotal">
-                            <span class="display-1">
-
-
-                            {{player.life}}
-                            </span>
-                        </div>
-                        <div class="lifeButtonContainer">
-                            <button class="lifeButton" ng-click="player.life = player.life - 1">-1</button>
-                            <button class="lifeButton" ng-click="player.life = player.life - 5">-5</button>
-                        </div>
+                    </div>
+                    <div class="lifeButtonContainer">
+                        <button class="lifeButton" ng-click="player.life = player.life + 5">+5</button>
+                        <button class="lifeButton" ng-click="player.life = player.life + 1">+1</button>
+                    </div>
+                    <div class="lifeTotal">
+                        <span class="display-1">{{player.life}}</span>
+                    </div>
+                    <div class="lifeButtonContainer">
+                        <button class="lifeButton" ng-click="player.life = player.life - 1">-1</button>
+                        <button class="lifeButton" ng-click="player.life = player.life - 5">-5</button>
                     </div>
                 </div>
             </div>
