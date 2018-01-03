@@ -27,8 +27,8 @@ body {
     height: 100%;
     text-align: center;
     background: linear-gradient( 135deg, #232323, #232323, #336600, #E13C1E, #0066cc, #dce0bb, #dce0bb);
-    padding-top: 20px;
-    padding-bottom: 9px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     height: 98%;
     border-color: white;
     border: 2px solid #BBBBBB;
@@ -36,7 +36,8 @@ body {
     color: black;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    flex: flex-grow;
 }
 
 .texture {
@@ -115,11 +116,12 @@ button {
 
 .lifeButtonContainer {
     display: flex;
-    justify-content: center;
+    /*justify-content: center;*/
 }
 
 .lifeButton {
     width: 100%;
+    flex-grow: 1;
 }
 
 .colorsList {
@@ -173,7 +175,6 @@ button {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    flex: flex-grow;
     justify-content: center;
 }
 
