@@ -11,9 +11,10 @@
 
 
 body {
-    font-size: 2vh;
+    font-size: 2em;
     background: #333333;
-    font-family: 'Ubuntu';
+    /*font-family: 'Ubuntu';*/
+    color: white;
 }
 
 
@@ -33,6 +34,7 @@ body {
     border-color: white;
     border: 2px solid #BBBBBB;
     border-radius: 10px;
+    color: black;
 }
 
 .texture {
@@ -40,14 +42,6 @@ body {
     background-image: url("images/mottled_BG_1.png");
     /*background-repeat: no-repeat;*/
     background-position: center center;
-}
-
-
-
-@media (max-width: 580px) {
-    .player {
-        width: 100%;
-    }
 }
 
 .playerName {
