@@ -217,3 +217,8 @@ button {
 .colorSelector div {
     flex-grow: 1;
 }
+
+.jumbotron {
+    text-align: center;
+    color: black;
+}
