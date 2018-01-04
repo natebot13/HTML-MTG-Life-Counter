@@ -45,7 +45,7 @@
                     </div>
                     <div class="customizationPanel" ng-show="is_editing">
                         <div class="colorsList">
-                            {{' '+ player.colors.join(' ') + ' '}}
+                            {{player.colors.length > 0 ? '['+ player.colors.join(' ') + ']':'[ ]'}}
                         </div>
                         <div>
                         </div>
