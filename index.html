@@ -22,7 +22,7 @@
         <p>
             <div class="hudContainer">
                 <div class="hudItem">
-                    <button class="hudBtn" ng-click="utils.add_player(utils.default_player());">
+                    <button class="hudBtn" ng-click="utils.add_player();">
                         add player
                     </button>
                 </div>
@@ -45,12 +45,12 @@
                     </div>
                     <div class="customizationPanel" ng-show="is_editing">
                         <div class="colorsList">
-                            {{player.colors}}
+                            {{player.colors.join('')}}
                         </div>
                         <div class="colorSelector">
                             <div class="manaBtnContainer">
                                 <div class="manaBtnWrapper" ng-repeat="color in all_colors">
-                                    <button class="manaBtn {{color}}"></button>
+                                    <button class="manaBtn {{color}}" ng-click="utils.add_color(player,color);"></button>
                                 </div>
                             </div>
                             <div>

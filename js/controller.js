@@ -1,24 +1,39 @@
+all_colors = ['w', 'u', 'b', 'r', 'g'];
+
+var copy_array = function(arr) {
+    return arr.slice(0, arr.length);
+}
+
+class Player {
+    constructor(name, life, colors) {
+        this.name = name;
+        this.life = life;
+        this.colors = colors;
+    }
+
+    reset_colors() {
+        this.colors = copy_array(all_colors);
+    }
+
+    add_color(color) {
+        this.colors.push(color);
+    }
+};
+
 app.controller("myCtrl", ["$scope", function($scope) {
     $scope.message = "Hello"
     $scope.players = Array();
     $scope.starting_life = 20;
     $scope.is_editing = false;
-    $scope.all_colors = 'wubrg';
+    $scope.all_colors = all_colors;
 
-    var create_player = function(name, life, colors) {
-        return {
-            name: name,
-            life: life,
-            colors: colors
-        };
-    }
 
     var default_player = function() {
-        return create_player("Default Player " + ($scope.players.length + 1), 20, 'wubrg');
+        return new Player("Default Player " + ($scope.players.length + 1), 20, copy_array($scope.all_colors));
     }
 
-    var add_player = function(p) {
-        $scope.players.push(p);
+    var add_player = function() {
+        $scope.players.push(default_player());
         console.log($scope.players);
     }
     var get_num_players = function() {
@@ -30,12 +45,19 @@ app.controller("myCtrl", ["$scope", function($scope) {
         }
 
     };
+
+    var add_color = function(player, color) {
+        player.colors.push(color);
+    }
+
+
     $scope.utils = {
-        create_player: create_player,
         default_player: default_player,
         add_player: add_player,
         get_num_players: get_num_players,
         set_all_life_totals: set_all_life_totals,
+        add_color: add_color,
+        copy_array: copy_array,
     }
 
 }]);
