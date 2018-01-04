@@ -37,6 +37,9 @@
                 </div>
             </div>
         </p>
+        <p>
+            <span ng-repeat="p in players"> {{p.name}} </span>
+        </p>
         <div class="playerBannersContainer" style="">
             <div ng-repeat="(playerIndex, player) in players">
                 <div class="player" ng-style="player.style">

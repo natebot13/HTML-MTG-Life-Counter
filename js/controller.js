@@ -29,7 +29,7 @@ class Player {
         // console.log([this.colors, this.colors.length, this.style['background']].join(' '));
         var inner = this.colors.map(c => color_to_rgb[c]).join(', ');
         if (this.colors.length > 1) {
-            inner = color_to_rgb[this.colors[0]] + ', ' + inner + ', ' + color_to_rgb[this.colors[1]];
+            inner = color_to_rgb[this.colors[0]] + ', ' + inner + ', ' + color_to_rgb[this.colors[this.colors.length - 1]];
         } else {
             inner = inner + ', ' + inner;
         }
