@@ -38,6 +38,7 @@ class Player {
 
     reset_colors() {
         this.colors = [];
+        this.style = 'linear-gradient( 135deg, #232323, #232323, #336600, #E13C1E, #0066cc, #dce0bb, #dce0bb)'
     }
 };
 
