@@ -1,4 +1,12 @@
-all_colors = ['w', 'u', 'b', 'r', 'g'];
+var all_colors = ['w', 'u', 'b', 'r', 'g'];
+
+var color_to_rgb = {
+    'w': '#DCe0BB',
+    'u': '#0066CC',
+    'b': '#232323',
+    'r': '#E13C1E',
+    'g': '#336600',
+}
 
 var copy_array = function(arr) {
     return arr.slice(0, arr.length);
@@ -9,6 +17,7 @@ class Player {
         this.name = name;
         this.life = life;
         this.colors = colors;
+        this.style = {};
     }
 
     reset_colors() {
@@ -17,6 +26,18 @@ class Player {
 
     add_color(color) {
         this.colors.push(color);
+        // console.log([this.colors, this.colors.length, this.style['background']].join(' '));
+        var inner = this.colors.map(c => color_to_rgb[c]).join(', ');
+        if (this.colors.length > 1) {
+            inner = color_to_rgb[this.colors[0]] + ', ' + inner + ', ' + color_to_rgb[this.colors[1]];
+        } else {
+            inner = inner + ', ' + inner;
+        }
+        this.style['background'] = 'linear-gradient( 135deg, ' + inner + ')';
+    }
+
+    reset_colors() {
+        this.colors = [];
     }
 };
 
@@ -29,7 +50,7 @@ app.controller("myCtrl", ["$scope", function($scope) {
 
 
     var default_player = function() {
-        return new Player("Default Player " + ($scope.players.length + 1), 20, copy_array($scope.all_colors));
+        return new Player("Default Player " + ($scope.players.length + 1), 20, []);
     }
 
     var add_player = function() {

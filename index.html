@@ -39,22 +39,24 @@
         </p>
         <div class="playerBannersContainer" style="">
             <div ng-repeat="(playerIndex, player) in players">
-                <div class="player">
+                <div class="player" ng-style="player.style">
                     <div class="playerNameContainer">
                         <input class="playerName" ng-model="player.name" tabindex="{{playerIndex+1}}"></input>
                     </div>
                     <div class="customizationPanel" ng-show="is_editing">
                         <div class="colorsList">
-                            {{player.colors.join('')}}
+                            {{' '+ player.colors.join(' ') + ' '}}
+                        </div>
+                        <div>
                         </div>
                         <div class="colorSelector">
                             <div class="manaBtnContainer">
                                 <div class="manaBtnWrapper" ng-repeat="color in all_colors">
-                                    <button class="manaBtn {{color}}" ng-click="utils.add_color(player,color);"></button>
+                                    <button class="manaBtn {{color}}" ng-click="player.add_color(color);"></button>
                                 </div>
                             </div>
                             <div>
-                                <button>Reset</button>
+                                <button ng-click="player.reset_colors();">Reset</button>
                             </div>
                         </div>
                     </div>
