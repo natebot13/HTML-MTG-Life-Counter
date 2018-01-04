@@ -2,6 +2,8 @@ app.controller("myCtrl", ["$scope", function($scope) {
     $scope.message = "Hello"
     $scope.players = Array();
     $scope.starting_life = 20;
+    $scope.is_editing = false;
+    $scope.all_colors = 'wubrg';
 
     var create_player = function(name, life, colors) {
         return {

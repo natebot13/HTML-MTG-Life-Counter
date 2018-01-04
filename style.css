@@ -73,13 +73,14 @@ body {
 .lifeNumber {
     opacity: 1;
     font-size: 5em;
+    line-height: 0.8em;
     margin: auto;
     margin-top: auto;
     margin-bottom: auto;
 }
 
 button {
-    border-radius: 3px;
+    border-radius: 5px;
     border: 3px solid #000000;
     background: #CCCCCC;
     margin-bottom: 5px;
@@ -87,7 +88,7 @@ button {
     margin-right: 5px;
     margin-left: 5px;
     /*height: 100%;*/
-    width: 100%;
+    /*width: 100%;*/
     color: black;
 }
 
@@ -127,24 +128,40 @@ button {
     flex-grow: 1;
 }
 
+.customizationPanel {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    margin: auto;
+}
+
 .colorsList {
     border: 2px #DDDDDD solid;
+    border-radius: 3px;
     background: #DDDDDD;
     font-size: 30px;
     text-align: center;
     display: block;
     margin: auto;
-    margin-bottom: 5px;
-    border-radius: 10px;
     width: 80%;
+}
+
+.manaBtnContainer {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.manaBtnWrapper {
+    margin: 0px;
+    flex-grow: 0;
 }
 
 .manaBtn {
     background-color: black;
-    border: none;
     background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 90%;
+    background-size: 95%;
     border-radius: 30px;
     height: 50px;
     width: 50px;
@@ -186,4 +203,16 @@ button {
     flex-direction: row;
     flex-wrap: wrap;
     flex: flex-grow;
+}
+
+.colorSelector {
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.colorSelector div {
+    flex-grow: 1;
 }
