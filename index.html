@@ -37,16 +37,6 @@
                 </div>
             </div>
         </p>
-        <div class="container">
-            <div class="jumbotron">
-                <h1>
-                    Matchup:
-                </h1>
-                <h2>
-                    <span ng-repeat="(index, p) in players"> {{p.name}} {{index < players.length-1 ? 'vs. ' : ''}}</span>
-                </h2>
-            </div>
-        </div>
         <div class="playerBannersContainer" style="">
             <div ng-repeat="(playerIndex, player) in players">
                 <div class="player" ng-style="player.style">
