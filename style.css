@@ -27,8 +27,7 @@ body {
     height: 100%;
     text-align: center;
     background: linear-gradient( 135deg, #232323, #232323, #336600, #E13C1E, #0066cc, #dce0bb, #dce0bb);
-    padding-top: 10px;
-    padding-bottom: 10px;
+
     height: 98%;
     border-color: white;
     border: 2px solid #BBBBBB;
@@ -40,10 +39,15 @@ body {
 }
 
 .texture {
-    height: 100%;
     background-image: url("images/mottled_BG_1.png");
-    /*background-repeat: no-repeat;*/
-    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .playerNameContainer {

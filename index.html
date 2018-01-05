@@ -40,6 +40,7 @@
         <div class="playerBannersContainer" style="">
             <div ng-repeat="(playerIndex, player) in players">
                 <div class="player" ng-style="player.style">
+                    <div class="texture">
                     <div class="playerNameContainer">
                         <input class="playerName" ng-model="player.name" tabindex="{{playerIndex+1}}"></input>
                     </div>
@@ -71,6 +72,7 @@
                         <button class="lifeButton" ng-click="player.life = player.life - 1">-1</button>
                         <button class="lifeButton" ng-click="player.life = player.life - 5">-5</button>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
