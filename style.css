@@ -62,7 +62,6 @@ body {
 
 .lifeTotal {
     color: white;
-    background: rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -71,18 +70,18 @@ body {
 }
 
 .lifeNumber {
+    background: rgba(0, 0, 0, 0.3);
+    margin: 0.5em;
+    border-radius: 0.1em;
     opacity: 1;
     font-size: 5em;
-    line-height: 0.8em;
-    margin: auto;
-    margin-top: auto;
-    margin-bottom: auto;
+    line-height: 0.9em;
 }
 
 button {
     border-radius: 5px;
     border: 3px solid #000000;
-    background: #CCCCCC;
+    background: #FFFFFF;
     margin-bottom: 5px;
     margin-top: 5px;
     margin-right: 5px;
