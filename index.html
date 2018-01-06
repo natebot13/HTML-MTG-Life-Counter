@@ -2,12 +2,12 @@
 <html>
 
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <script src="js/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/angularjs/1.6.4/angular-route.js"></script>
+    <script src="js/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/popper.js/1.12.6/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/controller.js"></script>
     <link rel="stylesheet" href="style.css">
@@ -41,38 +41,38 @@
             <div ng-repeat="(playerIndex, player) in players">
                 <div class="player" ng-style="player.style">
                     <div class="texture">
-                    <div class="playerNameContainer">
-                        <input class="playerName" ng-model="player.name" tabindex="{{playerIndex+1}}"></input>
-                    </div>
-                    <div class="customizationPanel" ng-show="is_editing">
-                        <div class="colorsList">
-                            {{player.colors.length > 0 ? '['+ player.colors.join(' ') + ']':'[ ]'}}
+                        <div class="playerNameContainer">
+                            <input class="playerName" ng-model="player.name" tabindex="{{playerIndex+1}}"></input>
                         </div>
-                        <div>
-                        </div>
-                        <div class="colorSelector">
-                            <div class="manaBtnContainer">
-                                <div class="manaBtnWrapper" ng-repeat="color in all_colors">
-                                    <button class="manaBtn {{color}}" ng-click="player.add_color(color);"></button>
-                                </div>
+                        <div class="customizationPanel" ng-show="is_editing">
+                            <div class="colorsList">
+                                {{player.colors.length > 0 ? '['+ player.colors.join(' ') + ']':'[ ]'}}
                             </div>
                             <div>
-                                <button ng-click="player.reset_colors();">Reset</button>
+                            </div>
+                            <div class="colorSelector">
+                                <div class="manaBtnContainer">
+                                    <div class="manaBtnWrapper" ng-repeat="color in all_colors">
+                                        <button class="manaBtn {{color}}" ng-click="player.add_color(color);"></button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button ng-click="player.reset_colors();">Reset</button>
+                                </div>
                             </div>
                         </div>
+                        <div class="lifeButtonContainer">
+                            <button class="lifeButton" ng-click="player.life = player.life + 1">+1</button>
+                            <button class="lifeButton" ng-click="player.life = player.life + 5">+5</button>
+                        </div>
+                        <div class="lifeTotal">
+                            <div class="lifeNumber">{{player.life}}</div>
+                        </div>
+                        <div class="lifeButtonContainer">
+                            <button class="lifeButton" ng-click="player.life = player.life - 1">-1</button>
+                            <button class="lifeButton" ng-click="player.life = player.life - 5">-5</button>
+                        </div>
                     </div>
-                    <div class="lifeButtonContainer">
-                        <button class="lifeButton" ng-click="player.life = player.life + 1">+1</button>
-                        <button class="lifeButton" ng-click="player.life = player.life + 5">+5</button>
-                    </div>
-                    <div class="lifeTotal">
-                        <div class="lifeNumber">{{player.life}}</div>
-                    </div>
-                    <div class="lifeButtonContainer">
-                        <button class="lifeButton" ng-click="player.life = player.life - 1">-1</button>
-                        <button class="lifeButton" ng-click="player.life = player.life - 5">-5</button>
-                    </div>
-                </div>
                 </div>
             </div>
         </div>
