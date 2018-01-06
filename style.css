@@ -52,7 +52,6 @@ body {
 
 .playerNameContainer {
     flex-grow: 0.5;
-    display: flex;
 }
 
 .playerName {
