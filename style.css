@@ -1,12 +1,7 @@
 /*disable auto zooming on typing in input field*/
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-    select:focus,
-    textarea:focus,
-    input:focus {
-        font-size: 16px;
-        background: #FFFFFF;
-    }
+
 }
 
 
@@ -57,6 +52,7 @@ body {
 
 .playerNameContainer {
     flex-grow: 0.5;
+    display: flex;
 }
 
 .playerName {
@@ -75,6 +71,8 @@ body {
     -webkit-display: flex;
     -moz-display: flex;
     -ms--display: flex;
+
+    display: inline-flex;
 
 
     flex-direction: column;
@@ -100,7 +98,7 @@ button {
     margin-top: 5px;
     margin-right: 5px;
     margin-left: 5px;
-    height: 100%;
+    /*height: 100%;*/
     width: 100%;
     color: black;
 }
@@ -130,6 +128,8 @@ button {
     -moz-display: flex;
     -ms--display: flex;
 
+    display: inline-flex;
+
 
     justify-content: center;
 }
@@ -145,6 +145,7 @@ button {
     margin: auto;
     flex-grow: 1;
     margin-top: 0.5em;
+    display: inline-flex;
 }
 
 .colorsList {
