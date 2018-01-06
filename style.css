@@ -45,6 +45,11 @@ body {
     background-size: cover;
     height: 100%;
     display: flex;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms--display: flex;
+
+
     flex-direction: column;
     justify-content: center;
     padding-bottom: 0.5em;
@@ -67,6 +72,11 @@ body {
 .lifeTotal {
     color: white;
     display: flex;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms--display: flex;
+
+
     flex-direction: column;
     justify-content: center;
     flex-grow: 2;
@@ -116,6 +126,11 @@ button {
 .lifeButtonContainer {
     flex-grow: 1;
     display: flex;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms--display: flex;
+
+
     justify-content: center;
 }
 
@@ -146,6 +161,11 @@ button {
 .manaBtnContainer {
     flex-grow: 1;
     display: flex;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms--display: flex;
+
+
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
@@ -191,6 +211,11 @@ button {
     height: 100%;
     /*width: 100%;*/
     display: flex;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms--display: flex;
+
+
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
@@ -198,6 +223,11 @@ button {
 
 .hudContainer {
     display: flex;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms--display: flex;
+
+
     flex-direction: row;
     flex-wrap: wrap;
     flex: flex-grow;
@@ -206,6 +236,11 @@ button {
 .colorSelector {
     color: white;
     display: flex;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms--display: flex;
+
+
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
