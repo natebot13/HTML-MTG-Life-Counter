@@ -146,7 +146,8 @@ button {
     margin: auto;
     flex-grow: 1;
     margin-top: 0.5em;
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
 }
 
 .colorsList {
