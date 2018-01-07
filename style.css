@@ -87,7 +87,6 @@ body {
     justify-content: center;
     flex-grow: 1;
     align-items: center;
-
 }
 
 .lifeNumber {
@@ -146,7 +145,7 @@ button {
     background-color: #FFFFFF;
     border-radius: 5px;
     margin: auto;
-    flex-grow: 1;
+    flex-grow: 0.1;
     margin-top: 0.5em;
     display: flex;
     flex-direction: column;
