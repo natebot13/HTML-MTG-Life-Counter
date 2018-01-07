@@ -51,8 +51,6 @@
                             <div class="colorsList">
                                 {{player.colors.length > 0 ? '['+ player.colors.join(' ') + ']':'[ ]'}}
                             </div>
-                            <div>
-                            </div>
                             <div class="colorSelector">
                                 <div class="manaBtnContainer">
                                     <div class="manaBtnWrapper" ng-repeat="color in all_colors">
@@ -64,16 +62,18 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="lifeButtonContainer">
-                            <button class="lifeButton" ng-click="player.life = player.life + 1">+1</button>
-                            <button class="lifeButton" ng-click="player.life = player.life + 5">+5</button>
-                        </div>
                         <div class="lifeTotal">
-                            <div class="lifeNumber">{{player.life}}</div>
-                        </div>
-                        <div class="lifeButtonContainer">
-                            <button class="lifeButton" ng-click="player.life = player.life - 1">-1</button>
-                            <button class="lifeButton" ng-click="player.life = player.life - 5">-5</button>
+                            <div class="tint">
+                                <div class="lifeButtonContainer">
+                                    <button class="lifeButton" ng-click="player.life = player.life + 1">+1</button>
+                                    <button class="lifeButton" ng-click="player.life = player.life + 5">+5</button>
+                                </div>
+                                <div class="lifeNumber">{{player.life}}</div>
+                                <div class="lifeButtonContainer">
+                                    <button class="lifeButton" ng-click="player.life = player.life - 1">-1</button>
+                                    <button class="lifeButton" ng-click="player.life = player.life - 5">-5</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
