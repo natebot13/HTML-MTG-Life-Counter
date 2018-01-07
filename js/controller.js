@@ -18,6 +18,8 @@ class Player {
         this.life = life;
         this.colors = colors;
         this.style = {};
+        this.commander_damage = {};
+        this.show_commander_damage = {};
     }
 
     reset_colors() {
@@ -38,7 +40,7 @@ class Player {
 
     reset_colors() {
         this.colors = [];
-        this.style['background'] = 'linear-gradient( 135deg, #232323, #232323, #336600, #E13C1E, #0066cc, #dce0bb, #dce0bb)'
+        this.style['background'] = ''
     }
 };
 
@@ -48,6 +50,7 @@ app.controller("myCtrl", ["$scope", function($scope) {
     $scope.starting_life = 20;
     $scope.is_editing = false;
     $scope.all_colors = all_colors;
+    $scope.show_commander_damage = false;
 
 
     var default_player = function() {

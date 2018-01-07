@@ -17,9 +17,8 @@ body {
     -ms-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
-    height: 100%;
     text-align: center;
-    background: linear-gradient( 135deg, #232323, #232323, #336600, #E13C1E, #0066cc, #dce0bb, #dce0bb);
+    background: #BBBBBB;
 
     height: 98%;
     border: 2px solid #000000;
@@ -71,7 +70,7 @@ body {
     color: white;
 
 
-    width: 75%;
+    /*width: 75%;*/
     margin: auto;
 }
 
@@ -107,13 +106,6 @@ button {
     color: black;
 }
 
-.clearBtn {
-    font-size: 40px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%;
-}
 
 .addBtn {
     width: 100px;
@@ -138,7 +130,8 @@ button {
 }
 
 .lifeButton {
-    width: 100%;
+    /*width: 100%;*/
+    flex-grow: 1;
 }
 
 .customizationPanel {
@@ -258,4 +251,27 @@ button {
 .jumbotron {
     text-align: center;
     color: black;
+}
+
+.commanderDamage {
+    display: flex;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms--display: flex;
+
+
+    justify-content: right;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.commanderDamage div {
+    flex-grow: 1;
+    margin-left: auto;
+}
+
+.commanderDamageEntry {
+    width: 100%;
+    word-wrap: break-word;
+    font-size: 0.8em;
 }
