@@ -5,7 +5,7 @@ var color_to_rgb = {
     'u': '#0066CC',
     'b': '#404040',
     'r': '#E13C1E',
-    'g': '#336600',
+    'g': '#159100',
 }
 
 var copy_array = function(arr) {
