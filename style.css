@@ -11,6 +11,13 @@ body {
 }
 
 
+.verticalCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
 .player {
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
@@ -40,11 +47,8 @@ body {
 
 
     display: flex;
-    -webkit-display: flex;
-    -moz-display: flex;
-    -ms--display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: top;
     padding-bottom: 0.5em;
 }
 
@@ -68,24 +72,19 @@ body {
 
 .lifeTotal {
     color: white;
-
-
-    /*width: 75%;*/
     margin: auto;
 }
+
+
 
 .tint {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 0.3em;
 
     display: flex;
-    -webkit-display: flex;
-    -moz-display: flex;
-    -ms--display: flex;
     flex-direction: column;
     justify-content: center;
     flex-grow: 1;
-    align-items: center;
 }
 
 .lifeNumber {
@@ -119,9 +118,6 @@ button {
 
 .lifeButtonContainer {
     display: flex;
-    -webkit-display: flex;
-    -moz-display: flex;
-    -ms--display: flex;
 
     flex-direction: row;
 
@@ -159,9 +155,6 @@ button {
 .manaBtnContainer {
     flex-grow: 1;
     display: flex;
-    -webkit-display: flex;
-    -moz-display: flex;
-    -ms--display: flex;
 
 
     flex-direction: row;
@@ -209,9 +202,6 @@ button {
     height: 100%;
     /*width: 100%;*/
     display: flex;
-    -webkit-display: flex;
-    -moz-display: flex;
-    -ms--display: flex;
 
 
     flex-direction: row;
@@ -221,9 +211,6 @@ button {
 
 .hudContainer {
     display: flex;
-    -webkit-display: flex;
-    -moz-display: flex;
-    -ms--display: flex;
 
 
     flex-direction: row;
@@ -234,9 +221,6 @@ button {
 .colorSelector {
     color: white;
     display: flex;
-    -webkit-display: flex;
-    -moz-display: flex;
-    -ms--display: flex;
 
 
     justify-content: center;
@@ -255,9 +239,6 @@ button {
 
 .commanderDamage {
     display: flex;
-    -webkit-display: flex;
-    -moz-display: flex;
-    -ms--display: flex;
 
 
     justify-content: right;

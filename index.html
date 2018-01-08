@@ -66,7 +66,7 @@
                             </div>
                         </div>
                         <div class="lifeTotal">
-                            <div class="tint">
+                            <div class="tint verticalCenter">
                                 <div class="lifeButtonContainer">
                                     <button class="lifeButton" ng-click="player.life = player.life + 1">+1</button>
                                     <button class="lifeButton" ng-click="player.life = player.life + 5">+5</button>
@@ -80,8 +80,8 @@
                                     CMDR DMG
                                     <div class="commanderDamageEntry" ng-repeat="(other_index,other) in players" ng-init="player.commander_damage[other_index]=0">
                                         {{other.name}}: {{player.commander_damage[other_index]}}
-                                        <button class="lifeButton" ng-click="player.commander_damage[other_index] = player.commander_damage[other_index]-1">-1</button>
-                                        <button class="lifeButton" ng-click="player.commander_damage[other_index] = player.commander_damage[other_index]+1">+1</button>
+                                        <button class="lifeButton" ng-click="player.commander_damage[other_index] = player.commander_damage[other_index]-1; player.life = player.life + 1;">-1</button>
+                                        <button class="lifeButton" ng-click="player.commander_damage[other_index] = player.commander_damage[other_index]+1; player.life = player.life - 1;">+1</button>
                                     </div>
                                 </div>
                             </div>
