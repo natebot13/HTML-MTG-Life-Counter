@@ -3,7 +3,7 @@ var all_colors = ['w', 'u', 'b', 'r', 'g'];
 var color_to_rgb = {
     'w': '#DCe0BB',
     'u': '#0066CC',
-    'b': '#232323',
+    'b': '#404040',
     'r': '#E13C1E',
     'g': '#336600',
 }
