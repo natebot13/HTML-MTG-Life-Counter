@@ -19,7 +19,7 @@ class Player {
         this.colors = colors;
         this.style = {};
         this.commander_damage = {};
-        this.show_commander_damage = {};
+        this.poison = 0;
     }
 
     reset_colors() {

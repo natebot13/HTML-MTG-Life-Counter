@@ -215,12 +215,12 @@ button:active {
 
 .hudContainer {
     display: flex;
-
-
     flex-direction: row;
     flex-wrap: wrap;
-    flex: flex-grow;
 }
+
+
+.hudItem {}
 
 .colorSelector {
     color: white;
@@ -252,11 +252,20 @@ button:active {
 
 .commanderDamage div {
     flex-grow: 1;
-    margin-left: auto;
 }
 
 .commanderDamageEntry {
+    text-align: right;
     width: 100%;
     word-wrap: break-word;
     font-size: 0.8em;
+}
+
+.poison {
+    /*background-image: url("images/phyrexia.png");*/
+    color: #00FF00;
+    background-size: contain;
+    /* <------ */
+    background-repeat: no-repeat;
+    background-position: center center;
 }
