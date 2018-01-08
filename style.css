@@ -105,6 +105,10 @@ button {
     color: black;
 }
 
+button:active {
+    filter: invert(100%);
+}
+
 
 .addBtn {
     width: 100px;

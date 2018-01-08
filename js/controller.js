@@ -1,7 +1,7 @@
 var all_colors = ['w', 'u', 'b', 'r', 'g'];
 
 var color_to_rgb = {
-    'w': '#DCe0BB',
+    'w': '#fff9bc',
     'u': '#0066CC',
     'b': '#404040',
     'r': '#E13C1E',
@@ -41,6 +41,18 @@ class Player {
     reset_colors() {
         this.colors = [];
         this.style['background'] = ''
+    }
+    static unJSON(json_obj) {
+        var p = new Player();
+        // debug the deserialized player attributes
+        // console.log("loading JSON into self:");
+        // console.log("player data: " + json_obj);
+        for (var v in json_obj) {
+            // debug individual attribute values
+            // console.log("Setting this.[" + v + "] to " + json_obj[v]);
+            p[v] = json_obj[v];
+        }
+        return p;
     }
 };
 
