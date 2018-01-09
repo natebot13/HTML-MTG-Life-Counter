@@ -7,11 +7,11 @@ This life counter has these standout features:
  - Assign a name to each deck
  - Choose any combination of colors to paint your banner
  - UI comfortably supports six players on a 1920x1080 desktop screen
- - track alternate forms of damage, including COmmander Damage
+ - track alternate forms of damage, including Commander Damage
 
 
 # Use it
 
-You can try the bleeding edge version [here](http://htmlpreview.github.io/?https://github.com/natebot13/HTML-MTG-Life-Counter/blob/master/index.html) or the more stable version [here](http://mtg.nathanp.me)
+You can try the bleeding edge version [here](https://rawgit.com/natebot13/HTML-MTG-Life-Counter/master/index.html) or the more stable version [here](http://mtg.nathanp.me)
 
 The beta version is [here](https://rawgit.com/natebot13/HTML-MTG-Life-Counter/angular/index.html)
