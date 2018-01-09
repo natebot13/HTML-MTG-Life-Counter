@@ -1,30 +1,21 @@
 /*disable auto zooming on typing in input field*/
-@media screen and (-webkit-min-device-pixel-ratio:0) { 
-  select:focus,
-  textarea:focus,
-  input:focus {
-    font-size: 16px;
-    background: #eee;
-  }
-}
 
-input {
-    font-size: 20em;
-}
-html,
-body,
-table {
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    font-family: sans-serif;
-    font-size: 50px;
-    background: black;
+@media screen and (-webkit-min-device-pixel-ratio:0) {}
+
+
+body {
+    font-size: 1.5em;
+    background: #111111;
+    /*font-family: 'Ubuntu';*/
     color: white;
 }
 
-table {
-    border-collapse: collapse;
+
+.verticalCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
 }
 
 .player {
@@ -33,40 +24,39 @@ table {
     -ms-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
-    width: 100%;
-    height: 100%;
-    margin: auto;
     text-align: center;
-    background: linear-gradient( 135deg, #232323, #232323, #336600, #E13C1E, #0066cc, #dce0bb, #dce0bb);
+    background: #BBBBBB;
+
+    height: 98%;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    color: black;
+}
+
+.player button {
+    font-size: 2em;
 }
 
 .texture {
-    height: 100%;
     background-image: url("images/mottled_BG_1.png");
-    background-repeat: no-repeat;
-    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    padding-bottom: 0.5em;
 }
 
-.box {
-    margin: auto;
-    padding-top: 20px;
-    padding-bottom: 9px;
-    position: relative;
-    top: 50%;
-    width: 95%;
-    -webkit-transform: translatey(-50%);
-    -moz-transform: translatey(-50%);
-    -ms-transform: translatey(-50%);
-    -o-transform: translatey(-50%);
-    transform: translatey(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 20px;
-}
-
-@media (max-width: 580px) {
-    .box {
-        width: 100%;
-    }
+.playerNameContainer {
+    flex-grow: 0.1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .playerName {
@@ -74,79 +64,115 @@ table {
     text-align: center;
     margin-top: 15px;
     border-radius: 10px;
-    font-size: 40px;
     border: 2px #DDDDDD solid;
-    background: #DDDDDD;
+    background: #FFFFFF;
+    flex-grow: 0.7;
 }
 
-.xcrement {
-    display: block;
-    margin: auto;
-}
 
 .lifeTotal {
     color: white;
-    display: block;
     margin: auto;
-    font-size: 200%;
+}
+
+
+
+.tint {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 0.3em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.lifeNumber {
+    opacity: 1;
+    font-size: 5em;
+    line-height: 0.9em;
 }
 
 button {
     border-radius: 5px;
-    border: 2px solid #DDDDDD;
-    background: #DDDDDD;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    margin-right: 5px;
-    margin-left: 5px;
-    font-size: 40px;
-    height: 60px;
-    width: 60px;
+    border: 3px solid #000000;
+    background: #FFFFFF;
+    margin-right: 2px;
+    margin-left: 2px;
+    /*height: 100%;*/
     color: black;
 }
 
-.clearBtn {
-    font-size: 40px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%;
+button:active {
+    filter: invert(100%);
 }
+
 
 .addBtn {
     width: 100px;
     height: 100px;
 }
 
-.hudBtn{
+.hudBtn {
     width: auto;
 }
-.flipBtn {
-    font-size: 40px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%;
+
+
+.lifeButtonContainer {
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: center;
+    width: 100%;
+}
+
+.lifeButton {
+    /*width: 100%;*/
+    flex-grow: 1;
+}
+
+.customizationPanel {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    margin: auto;
+    flex-grow: 0.1;
+    margin-top: 0.5em;
+    display: flex;
+    flex-direction: column;
 }
 
 .colorsList {
     border: 2px #DDDDDD solid;
+    border-radius: 3px;
     background: #DDDDDD;
     font-size: 30px;
     text-align: center;
     display: block;
     margin: auto;
-    margin-bottom: 5px;
-    border-radius: 10px;
     width: 80%;
+    flex-grow: 0.5;
+}
+
+.manaBtnContainer {
+    flex-grow: 1;
+    display: flex;
+
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.manaBtnWrapper {
+    margin: 0px;
+    flex-grow: 0;
 }
 
 .manaBtn {
     background-color: black;
-    border: none;
     background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 90%;
+    background-size: 95%;
     border-radius: 30px;
     height: 50px;
     width: 50px;
@@ -172,36 +198,76 @@ button {
     background-image: url("images/W_BW.png");
 }
 
-.playerSlots {
-    margin-right: -5px;
-    margin-left: -5px;
+.playerBannersContainer {
     border: none;
     border-spacing: 0;
+    height: 100%;
+    /*width: 100%;*/
+    display: flex;
+
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-#allPLayers {
+.hudContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+.hudItem {}
+
+.colorSelector {
+    color: white;
+    display: flex;
+
+
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.colorSelector div {
+    flex-grow: 1;
+}
+
+.jumbotron {
+    text-align: center;
+    color: black;
+}
+
+.commanderDamage {
+    display: flex;
+
+
+    justify-content: right;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.commanderDamage div {
+    flex-grow: 1;
+}
+
+.commanderDamageEntry {
+    text-align: right;
     width: 100%;
+    word-wrap: break-word;
+    font-size: 0.8em;
 }
 
-.safeButtons {
-    float: left;
-    display: inline;
+.commanderDamageNumber {
+    font-size: 1.5em;
 }
 
-.warningButtons {
-    display: inline;
-    float: right;
-}
-
-.warningButtons button{
-    background-color: red;
-    border-color: red;
-}
-
-.nextline {
-    clear: both;
-}
-
-.adviceSection {
-    font-size: 16px;
+.poison {
+    /*background-image: url("images/phyrexia.png");*/
+    color: #6eb73a;
+    background-size: contain;
+    /* <------ */
+    background-repeat: no-repeat;
+    background-position: center center;
 }
