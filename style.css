@@ -97,10 +97,8 @@ button {
     border-radius: 5px;
     border: 3px solid #000000;
     background: #FFFFFF;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    margin-right: 5px;
-    margin-left: 5px;
+    margin-right: 2px;
+    margin-left: 2px;
     /*height: 100%;*/
     color: black;
 }
@@ -267,7 +265,7 @@ button:active {
 
 .poison {
     /*background-image: url("images/phyrexia.png");*/
-    color: #00FF00;
+    color: #6eb73a;
     background-size: contain;
     /* <------ */
     background-repeat: no-repeat;
