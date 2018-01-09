@@ -47,7 +47,7 @@
         <div> Extra Bits </div>
         <div class="hudContainer">
             <div class="hudItem">
-                <button class="hudBtn" ng-click="show_value_editor = !show_value_editor;" ng-init="show_value_editor = false;">Life total editor?</button>
+                <button class="hudBtn" ng-click="show_value_editor = !show_value_editor;" ng-init="show_value_editor = false;">Life total editor</button>
             </div>
             <p>
                 <div ng-show="show_value_editor">
@@ -103,7 +103,7 @@
                                 <div class="commanderDamage" ng-show="show_commander_damage">
                                     CMDR DMG
                                     <div class="commanderDamageEntry" ng-repeat="(other_index,other) in players" ng-init="player.commander_damage[other_index]=0">
-                                        {{other.name}}: {{player.commander_damage[other_index]}}
+                                        {{other.name.slice(0,10)}}{{other.name.length > 10 ? '...' : ''}}: <span class="commanderDamageNumber">{{player.commander_damage[other_index]}}</span>
                                         <button class="lifeButton" ng-click="player.commander_damage[other_index] = player.commander_damage[other_index]-1; player.life = player.life + 1;">-1</button>
                                         <button class="lifeButton" ng-click="player.commander_damage[other_index] = player.commander_damage[other_index]+1; player.life = player.life - 1;">+1</button>
                                     </div>

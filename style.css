@@ -5,7 +5,7 @@
 
 body {
     font-size: 1.5em;
-    background: #333333;
+    background: #111111;
     /*font-family: 'Ubuntu';*/
     color: white;
 }
@@ -259,6 +259,10 @@ button:active {
     width: 100%;
     word-wrap: break-word;
     font-size: 0.8em;
+}
+
+.commanderDamageNumber {
+    font-size: 1.5em;
 }
 
 .poison {
