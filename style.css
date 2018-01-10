@@ -130,6 +130,8 @@ button:active {
 .lifeButton {
     /*width: 100%;*/
     flex-grow: 1;
+    /*make buttons overlap text so their entier area is clickable*/
+    z-index: 10;
 }
 
 .customizationPanel {
