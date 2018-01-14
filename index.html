@@ -114,7 +114,6 @@
                                     </div>
                                 </div>
                                 <div class="commanderDamage" ng-show="show_commander_damage">
-                                    CMDR DMG
                                     <div class="commanderDamageEntry" ng-repeat="(other_index,other) in players" ng-init="player.commander_damage[other_index]=0">
                                         {{other.name.slice(0,10)}}{{other.name.length > 10 ? '...' : ''}}: <span class="commanderDamageNumber">{{player.commander_damage[other_index]}}</span>
                                         <button class="lifeButton" ng-click="player.commander_damage[other_index] = player.commander_damage[other_index]-1; player.life = player.life + 1;">-1</button>
