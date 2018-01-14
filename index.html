@@ -32,6 +32,9 @@
                 <button class="hudBtn" ng-click="utils.set_all_life_totals(20);">20</button>
             </div>
             <div class="hudItem">
+                <button class="hudBtn" ng-click="utils.set_all_life_totals(30);">30</button>
+            </div>
+            <div class="hudItem">
                 <button class="hudBtn" ng-click="utils.set_all_life_totals(40);">40</button>
             </div>
             <div class="hudItem">
@@ -40,12 +43,18 @@
             <div class="hudItem">
                 <button class="hudBtn" ng-click="show_commander_damage = !show_commander_damage;" ng-init="show_commander_damage = false;">Commander damage?</button>
             </div>
-            <div class="hudItem">
-                <button class="hudBtn" ng-click="show_poison_damage = !show_poison_damage;" ng-init="show_poison_damage = false;">Poison?</button>
-            </div>
         </div>
         <div> Extra Bits </div>
         <div class="hudContainer">
+            <div class="hudItem">
+                <button class="hudBtn" ng-click="show_poison_damage = !show_poison_damage;" ng-init="show_poison_damage = false;">Poison?</button>
+            </div>
+            <div class="hudItem">
+                <button class="hudBtn" ng-click="show_ascended = !show_ascended;" ng-init="show_ascended = false;">Ascend?</button>
+            </div>
+            <div class="hudItem">
+                <button class="hudBtn" ng-click="show_monarch = !show_monarch;" ng-init="show_monarch = false;">Monarch?</button>
+            </div>
             <div class="hudItem">
                 <button class="hudBtn" ng-click="show_value_editor = !show_value_editor;" ng-init="show_value_editor = false;">Quick edit life</button>
             </div>
@@ -64,6 +73,10 @@
                     <div class="texture">
                         <div class="playerNameContainer">
                             <input class="playerName" ng-model="player.name" tabindex="{{playerIndex+1}}"></input>
+                        </div>
+                        <div class='statusEffectContainer'>
+                            <div ng-show="show_ascended" class="ascend" ng-class="{'status-applied':player.is_ascended}" ng-click="player.is_ascended = !player.is_ascended"></div>
+                            <div ng-show="show_monarch" class="monarch" ng-class="{'status-applied':player.is_monarch}" ng-click="utils.set_monarch(playerIndex);"></div>
                         </div>
                         <div class="customizationPanel" ng-show="is_editing">
                             <div class="colorsList">

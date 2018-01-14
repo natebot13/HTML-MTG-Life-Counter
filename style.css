@@ -52,6 +52,7 @@ body {
     padding-bottom: 0.5em;
 }
 
+
 .playerNameContainer {
     flex-grow: 0.1;
     display: flex;
@@ -66,7 +67,6 @@ body {
     border-radius: 10px;
     border: 2px #DDDDDD solid;
     background: #FFFFFF;
-    flex-grow: 0.7;
 }
 
 
@@ -270,6 +270,39 @@ button:active {
     color: #6eb73a;
     background-size: contain;
     /* <------ */
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
+}
+
+.statusEffectContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.ascend {
+    background-image: url("images/rix-mythic.png");
+    filter: blur(0.025em) saturate(15%);
+    flex-grow: 1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 3em;
+}
+
+
+.monarch {
+    background-image: url("images/CN2.png");
+    filter: blur(0.05em) saturate(5%);
+    flex-grow: 1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 3em;
+}
+
+
+.status-applied {
+    filter: saturate(100%);
 }

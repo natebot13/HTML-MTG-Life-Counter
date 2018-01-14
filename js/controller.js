@@ -20,6 +20,8 @@ class Player {
         this.style = {};
         this.commander_damage = {};
         this.poison = 0;
+        this.is_monarch = false;
+        this.is_ascended = false;
     }
 
     reset_colors() {
@@ -83,6 +85,13 @@ app.controller("myCtrl", ["$scope", function($scope) {
 
     };
 
+    var set_monarch = function(index) {
+        for (let i = 0; i < $scope.players.length; i++) {
+            $scope.players[i].is_monarch = false;
+        }
+        $scope.players[index].is_monarch = true;
+    }
+
     var add_color = function(player, color) {
         player.colors.push(color);
     }
@@ -95,6 +104,7 @@ app.controller("myCtrl", ["$scope", function($scope) {
         set_all_life_totals: set_all_life_totals,
         add_color: add_color,
         copy_array: copy_array,
+        set_monarch: set_monarch,
     }
 
 }]);
