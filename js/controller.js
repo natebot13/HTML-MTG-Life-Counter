@@ -22,6 +22,7 @@ class Player {
         this.poison = 0;
         this.is_monarch = false;
         this.is_ascended = false;
+        this.energy = 0;
     }
 
     reset_colors() {
@@ -70,7 +71,7 @@ app.controller("myCtrl", ["$scope", function($scope) {
 
 
     var default_player = function() {
-        return new Player("Default Player " + ($scope.players.length + 1), 20, []);
+        return new Player("Player " + ($scope.players.length + 1), 20, []);
     }
 
     var add_player = function() {
