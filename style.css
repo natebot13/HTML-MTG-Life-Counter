@@ -294,7 +294,7 @@ button:active {
 
 .monarch {
     background-image: url("images/CN2.png");
-    filter: blur(0.05em) saturate(5%);
+    filter: blur(0.1em) saturate(1%);
     flex-grow: 1;
     background-size: contain;
     background-repeat: no-repeat;
