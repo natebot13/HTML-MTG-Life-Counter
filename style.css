@@ -73,6 +73,7 @@ body {
 .lifeTotal {
     color: white;
     margin: auto;
+    font-size: 1em;
 }
 
 
@@ -142,13 +143,14 @@ button:active {
     margin-top: 0.5em;
     display: flex;
     flex-direction: column;
+    font-size: 0.75em;
 }
 
 .colorsList {
     border: 2px #DDDDDD solid;
     border-radius: 3px;
     background: #DDDDDD;
-    font-size: 30px;
+    font-size: 1.5em;
     text-align: center;
     display: block;
     margin: auto;
@@ -230,10 +232,12 @@ button:active {
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
+    color: black;
 }
 
 .colorSelector div {
     flex-grow: 1;
+    /*font-size: 0.5em;*/
 }
 
 .jumbotron {
@@ -273,6 +277,10 @@ button:active {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
+}
+
+.smallCounter {
+    font-size: 0.5em;
 }
 
 .statusEffectContainer {

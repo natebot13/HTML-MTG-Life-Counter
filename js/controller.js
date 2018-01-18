@@ -23,6 +23,7 @@ class Player {
         this.is_monarch = false;
         this.is_ascended = false;
         this.energy = 0;
+        this.misc_counters = [];
     }
 
     reset_colors() {
@@ -47,6 +48,15 @@ class Player {
         this.colors = [];
         this.style['background'] = ''
     }
+
+    add_counter() {
+        this.misc_counters.push(0);
+    }
+
+    remove_counter() {
+        this.misc_counters.pop();
+    }
+    
     static unJSON(json_obj) {
         var p = new Player();
         // debug the deserialized player attributes
