@@ -90,13 +90,13 @@ app.controller("myCtrl", ["$scope", function($scope) {
 
     var set_monarch = function(index) {
         if (!$scope.players[index].is_monarch) {
+            for (let i = 0; i < $scope.players.length; i++) {
+                $scope.players[i].is_monarch = false;
+            }
             $scope.players[index].is_monarch = true;
         } else {
+            console.log("De-monarch " + index)
             $scope.players[index].is_monarch = false;
-
-        }
-        for (let i = 0; i < $scope.players.length; i++) {
-            $scope.players[i].is_monarch = false;
         }
     }
 
