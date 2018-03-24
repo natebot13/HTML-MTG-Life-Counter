@@ -12,6 +12,16 @@ This life counter has these standout features:
 
 # Use it
 
-You can try the bleeding edge version [here](https://rawgit.com/natebot13/HTML-MTG-Life-Counter/master/index.html) or the more stable version [here](http://mtg.nathanp.me)
+## Versions
 
-The beta version is [here](https://rawgit.com/natebot13/HTML-MTG-Life-Counter/angular/index.html)
+### Stable Version
+
+[here](http://mtg.nathanp.me)
+
+### Development Version
+
+[Development](https://rawgit.com/natebot13/HTML-MTG-Life-Counter/dev/index.html)
+
+### Beta Features
+
+[Beta](https://rawgit.com/natebot13/HTML-MTG-Life-Counter/beta/index.html)
