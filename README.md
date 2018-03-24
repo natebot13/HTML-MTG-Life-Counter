@@ -20,6 +20,12 @@ Average Joe should use this version.
 
 [Stable](http://mtg.nathanp.me)
 
+### Legacy/Mobile Version
+
+Curmudgeon's and old friends of the app go here.
+[Legacy/Mobile](
+https://rawgit.com/natebot13/HTML-MTG-Life-Counter/20d7329fbbb5652cd52abbe0522ab485a8dbfc8a/index.html)
+
 ### Development Version
 
 Devs and those interested should go here.
@@ -30,3 +36,4 @@ Devs and those interested should go here.
 
 
 [Beta](https://rawgit.com/natebot13/HTML-MTG-Life-Counter/beta/index.html)
+
