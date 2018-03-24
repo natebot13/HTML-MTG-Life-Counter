@@ -1,56 +1,21 @@
 <!-- <meta name="viewport" content="user-scalable=no" /> -->
 <html>
-
-<head>
-    <script src="js/angularjs/1.6.4/angular.min.js"></script>
-    <script src="js/angularjs/1.6.4/angular-route.js"></script>
-    <script src="js/jquery/3.2.1/jquery.min.js"></script>
-    <script src="js/popper.js/1.12.6/umd/popper.min.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/controller.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=0.5, user-scalable=no" />
-</head>
-
-<body>
-    <div ng-app="myApp" ng-controller="myCtrl">
-        <div class="display-1">
-            MTG Life Counter
-        </div>
-        <div class="">
-            A life counter for your big screen! (Works best on Firefox). Mobile version:
-            <a href="https://rawgit.com/natebot13/HTML-MTG-Life-Counter/20d7329fbbb5652cd52abbe0522ab485a8dbfc8a/index.html">
-                <button>here</button>
-            </a>
-        </div>
-        <div class="hudContainer">
-            Players:
-            <div class="hudItem">
-                <button class="hudBtn" ng-click="utils.add_player();">
-                    Add
-                </button>
-                <button class="hudBtn" ng-click="utils.pop_player();">
-                    Remove
-                </button>
-            </div>
-            Life:
-            <div class="hudItem">
-                <button class="hudBtn" ng-click="utils.set_all_life_totals(20);">20</button>
-            </div>
-            <div class="hudItem">
-                <button class="hudBtn" ng-click="utils.set_all_life_totals(30);">30</button>
-            </div>
-            <div class="hudItem">
-                <button class="hudBtn" ng-click="utils.set_all_life_totals(40);">40</button>
-            </div>
-            Other:
-            <div class="hudItem">
-                <button class="hudBtn" ng-click="is_editing = !is_editing;">Customize?</button>
-            </div>
-            <div class="hudItem">
-                <button class="hudBtn" ng-click="show_commander_damage = !show_commander_damage;" ng-init="show_commander_damage = false;">Commander damage?</button>
+    <head>
+        <script src="js/angularjs/1.6.4/angular.min.js"></script>
+        <script src="js/angularjs/1.6.4/angular-route.js"></script>
+        <script src="js/jquery/3.2.1/jquery.min.js"></script>
+        <script src="js/popper.js/1.12.6/umd/popper.min.js"></script>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/controller.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=0.5, user-scalable=no" />
+    </head>
+    <body>
+        <div ng-app="myApp" ng-controller="myCtrl">
+            <div class="display-1">
+                MTG Life Counter
             </div>
             <div class="">
                 A life counter for your big screen! (Works best on Firefox)
@@ -59,10 +24,10 @@
                 <div class="hudItem">
                     Players:
                     <button class="hudBtn" ng-click="utils.add_player();">
-                        Add
+                    Add
                     </button>
                     <button class="hudBtn" ng-click="utils.pop_player();">
-                        Remove
+                    Remove
                     </button>
                 </div>
                 <div class="hudItem">
@@ -170,5 +135,4 @@
         </div>
     </div>
 </body>
-
 </html>
