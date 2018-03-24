@@ -1,0 +1,32 @@
+<!-- <meta name="viewport" content="user-scalable=no" /> -->
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=0.5, user-scalable=no" />
+    <title>MTG Life Counter</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div id="test">
+    </div>
+    <div id="allPlayers" class="playerSlots">
+    </div>
+    <div class="hud">
+        <div class="safeButtons">
+            <button onclick="addPlayer()" class="hudBtn">Add Player</button>
+            <button onclick="playSixty()" class="hudBtn">20</button>
+            <button onclick="playCommander()" class="hudBtn">40</button>
+            <button onclick="doneEditing()" class="hudBtn">Play</button>
+        </div>
+        <div class="warningButtons">
+            <button onclick="reset()" class="hudBtn">Reset</button>
+        </div>
+        <div class="nextline adviceSection">
+            Having a slow or laggy mobile experience? We recommend Google Chrome.
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
