@@ -12,6 +12,28 @@ This life counter has these standout features:
 
 # Use it
 
-You can try the bleeding edge version [here](https://rawgit.com/natebot13/HTML-MTG-Life-Counter/master/index.html) or the more stable version [here](http://mtg.nathanp.me)
+## Versions
 
-The beta version is [here](https://rawgit.com/natebot13/HTML-MTG-Life-Counter/angular/index.html)
+### Stable Version
+
+Average Joe should use this version.
+
+[Stable](http://mtg.nathanp.me)
+
+### Legacy/Mobile Version
+
+Curmudgeon's and old friends of the app go here.
+[Legacy/Mobile](
+https://rawgit.com/natebot13/HTML-MTG-Life-Counter/20d7329fbbb5652cd52abbe0522ab485a8dbfc8a/index.html)
+
+### Development Version
+
+Devs and those interested should go here.
+
+[Development](https://rawgit.com/natebot13/HTML-MTG-Life-Counter/dev/index.html)
+
+### Beta Features
+
+
+[Beta](https://rawgit.com/natebot13/HTML-MTG-Life-Counter/beta/index.html)
+
