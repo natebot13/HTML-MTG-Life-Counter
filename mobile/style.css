@@ -42,7 +42,7 @@ table {
 
 .texture {
     height: 100%;
-    background-image: url("images/mottled_BG_1.png");
+    background-image: url("../images/mottled_BG_1.png");
     background-repeat: no-repeat;
     background-position: center center;
 }
@@ -153,23 +153,23 @@ button {
 }
 
 .B {
-    background-image: url("images/B_BW.png");
+    background-image: url("../images/B_BW.png");
 }
 
 .G {
-    background-image: url("images/G_BW.png");
+    background-image: url("../images/G_BW.png");
 }
 
 .R {
-    background-image: url("images/R_BW.png");
+    background-image: url("../images/R_BW.png");
 }
 
 .U {
-    background-image: url("images/U_BW.png");
+    background-image: url("../images/U_BW.png");
 }
 
 .W {
-    background-image: url("images/W_BW.png");
+    background-image: url("../images/W_BW.png");
 }
 
 .playerSlots {
