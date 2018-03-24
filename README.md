@@ -23,6 +23,7 @@ Average Joe should use this version.
 ### Legacy/Mobile Version
 
 Curmudgeon's and old friends of the app go here.
+
 [Legacy/Mobile](
 http://mtg.nathanp.me/mobile)
 
