@@ -113,6 +113,10 @@ app.controller("myCtrl", ["$scope", function($scope) {
     var add_color = function(player, color) {
         player.colors.push(color);
     }
+    var pop_player = function(){
+        $scope.players.pop();
+
+    }
 
 
     $scope.utils = {
@@ -123,6 +127,7 @@ app.controller("myCtrl", ["$scope", function($scope) {
         add_color: add_color,
         copy_array: copy_array,
         set_monarch: set_monarch,
+        pop_player: pop_player,
     }
 
 }]);
