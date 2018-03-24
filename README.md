@@ -16,12 +16,17 @@ This life counter has these standout features:
 
 ### Stable Version
 
-[here](http://mtg.nathanp.me)
+Average Joe should use this version.
+
+[Stable](http://mtg.nathanp.me)
 
 ### Development Version
+
+Devs and those interested should go here.
 
 [Development](https://rawgit.com/natebot13/HTML-MTG-Life-Counter/dev/index.html)
 
 ### Beta Features
+
 
 [Beta](https://rawgit.com/natebot13/HTML-MTG-Life-Counter/beta/index.html)
