@@ -4,10 +4,11 @@ MTG life counters suffer from two problems: you can't display all the colors of 
 
 This life counter has these standout features:
 
- - Assign a name to each deck
  - Choose any combination of colors to paint your banner
- - UI comfortably supports six players on a 1920x1080 desktop screen
+ - UI comfortably supports 1-12 players on a 1920x1080 screen
  - track alternate forms of damage, including Commander Damage
+ - Track arbitrary counts such as Storm, mana pools, etc.
+ - Assign a name to each deck
 
 
 # Use it
