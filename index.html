@@ -1,131 +1,133 @@
 <!-- <meta name="viewport" content="user-scalable=no" /> -->
 <html>
-    <head>
-        <script src="js/angularjs/1.6.4/angular.min.js"></script>
-        <script src="js/angularjs/1.6.4/angular-route.js"></script>
-        <script src="js/jquery/3.2.1/jquery.min.js"></script>
-        <script src="js/popper.js/1.12.6/umd/popper.min.js"></script>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/app.js"></script>
-        <script src="js/controller.js"></script>
-        <link rel="stylesheet" href="style.css">
-        <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=0.5, user-scalable=no" />
-    </head>
-    <body>
-        <div ng-app="myApp" ng-controller="myCtrl">
-            <div class="display-1">
-                MTG Life Counter
-            </div>
-            <div class="">
-                A life counter for your big screen! (Works best on Firefox). Mobile version: <a href="mobile/index.html"> <button>here</button></a>
-            </div>
-            <div class="hudContainer">
-                <div class="hudItem">
-                    Players:
-                    <button class="hudBtn" ng-click="utils.add_player();">
+
+<head>
+    <script src="js/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/angularjs/1.6.4/angular-route.js"></script>
+    <script src="js/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/popper.js/1.12.6/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controller.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=0.5, user-scalable=no" />
+</head>
+
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <div class="display-1">
+            MTG Life Counter
+        </div>
+        <div class="">
+            A life counter for your big screen! (Works best on Firefox). Mobile version:
+            <a href="mobile/index.html">
+                <button>here</button>
+            </a>
+        </div>
+        <div class="hudContainer">
+            <div class="hudItem">
+                Players:
+                <button class="hudBtn" ng-click="utils.add_player();">
                     Add
-                    </button>
-                    <button class="hudBtn" ng-click="utils.pop_player();">
+                </button>
+                <button class="hudBtn" ng-click="utils.pop_player();">
                     Remove
-                    </button>
-                </div>
-                <div class="hudItem">
-                    Life:
-                    <button class="hudBtn" ng-click="utils.set_all_life_totals(20);">20</button>
-                    <button class="hudBtn" ng-click="utils.set_all_life_totals(30);">30</button>
-                    <button class="hudBtn" ng-click="utils.set_all_life_totals(40);">40</button>
-                </div>
-                <div class="hudItem">
-                    Other:
-                    <button class="hudBtn" ng-click="is_editing = !is_editing;">Customize?</button>
-                    <button class="hudBtn" ng-click="show_commander_damage = !show_commander_damage;" ng-init="show_commander_damage = false;">Commander damage?</button>
-                </div>
+                </button>
             </div>
-            <div> Extra Bits </div>
-            <div class="hudContainer">
-                <div class="hudItem">
-                    <button class="hudBtn" ng-click="show_poison_damage = !show_poison_damage;" ng-init="show_poison_damage = false;">Poison?</button>
-                    <button class="hudBtn" ng-click="show_ascended = !show_ascended;" ng-init="show_ascended = false;">Ascend?</button>
-                    <button class="hudBtn" ng-click="show_monarch = !show_monarch;" ng-init="show_monarch = false;">Monarch?</button>
-                    <button class="hudBtn" ng-click="show_value_editor = !show_value_editor;" ng-init="show_value_editor = false;">Quick edit life</button>
+            <div class="hudItem">
+                Life:
+                <button class="hudBtn" ng-click="utils.set_all_life_totals(20);">20</button>
+                <button class="hudBtn" ng-click="utils.set_all_life_totals(30);">30</button>
+                <button class="hudBtn" ng-click="utils.set_all_life_totals(40);">40</button>
+            </div>
+            <div class="hudItem">
+                Other:
+                <button class="hudBtn" ng-click="is_editing = !is_editing;">Customize?</button>
+                <button class="hudBtn" ng-click="show_commander_damage = !show_commander_damage;" ng-init="show_commander_damage = false;">Commander damage?</button>
+            </div>
+        </div>
+        <div> Extra Bits </div>
+        <div class="hudContainer">
+            <div class="hudItem">
+                <button class="hudBtn" ng-click="show_poison_damage = !show_poison_damage;" ng-init="show_poison_damage = false;">Poison?</button>
+                <button class="hudBtn" ng-click="show_ascended = !show_ascended;" ng-init="show_ascended = false;">Ascend?</button>
+                <button class="hudBtn" ng-click="show_monarch = !show_monarch;" ng-init="show_monarch = false;">Monarch?</button>
+                <button class="hudBtn" ng-click="show_value_editor = !show_value_editor;" ng-init="show_value_editor = false;">Quick edit life</button>
+            </div>
+            <p>
+                <div ng-show="show_value_editor">
+                    <div ng-repeat="player in players" class="hudItem">
+                        {{player.name}}:
+                        <input ng-model="player.life"></input>
+                    </div>
                 </div>
-                <p>
-                    <div ng-show="show_value_editor">
-                        <div ng-repeat="player in players" class="hudItem">
-                            {{player.name}}:
-                            <input ng-model="player.life"></input>
+            </p>
+        </div>
+        <div class="playerBannersContainer" style="">
+            <div class="player" ng-style="player.style" ng-repeat="(playerIndex, player) in players">
+                <div class="texture">
+                    <div class="playerNameContainer">
+                        <input class="playerName" ng-model="player.name" tabindex="{{playerIndex+1}}"></input>
+                    </div>
+                    <div class='statusEffectContainer'>
+                        <div ng-show="show_ascended" class="ascend" ng-class="{'status-applied':player.is_ascended}" ng-click="player.is_ascended = !player.is_ascended"></div>
+                        <div ng-show="show_monarch" class="monarch" ng-class="{'status-applied':player.is_monarch}" ng-click="utils.set_monarch(playerIndex);"></div>
+                    </div>
+                    <div class="customizationPanel" ng-show="is_editing">
+                        <div class="colorsList">
+                            {{player.colors.length > 0 ? '['+ player.colors.join(' ') + ']':'[ ]'}}
+                        </div>
+                        <div class="colorSelector">
+                            <div class="manaBtnContainer">
+                                <div class="manaBtnWrapper" ng-repeat="color in all_colors">
+                                    <button class="manaBtn {{color}}" ng-click="player.add_color(color);"></button>
+                                </div>
+                            </div>
+                            <div>
+                                <button ng-click="player.reset_colors();">Reset</button>
+                            </div>
+                        </div>
+                        <div>
+                            Custom counters
+                            <button ng-click="player.remove_counter();">-</button>
+                            <button ng-click="player.add_counter();">+</button>
                         </div>
                     </div>
-                </p>
-            </div>
-            <div class="playerBannersContainer" style="">
-                <div ng-repeat="(playerIndex, player) in players">
-                    <div class="player" ng-style="player.style">
-                        <div class="texture">
-                            <div class="playerNameContainer">
-                                <input class="playerName" ng-model="player.name" tabindex="{{playerIndex+1}}"></input>
+                    <div class="lifeTotal">
+                        <div class="tint verticalCenter">
+                            <div class="lifeButtonContainer">
+                                <button class="lifeButton" ng-click="player.life = player.life + 1">+</button>
+                                <button class="lifeButton" ng-click="player.life = player.life + 5">5</button>
                             </div>
-                            <div class='statusEffectContainer'>
-                                <div ng-show="show_ascended" class="ascend" ng-class="{'status-applied':player.is_ascended}" ng-click="player.is_ascended = !player.is_ascended"></div>
-                                <div ng-show="show_monarch" class="monarch" ng-class="{'status-applied':player.is_monarch}" ng-click="utils.set_monarch(playerIndex);"></div>
+                            <div class="lifeNumber">{{player.life}}</div>
+                            <div class="lifeButtonContainer">
+                                <button class="lifeButton" ng-click="player.life = player.life - 1">-</button>
+                                <button class="lifeButton" ng-click="player.life = player.life - 5">5</button>
                             </div>
-                            <div class="customizationPanel" ng-show="is_editing">
-                                <div class="colorsList">
-                                    {{player.colors.length > 0 ? '['+ player.colors.join(' ') + ']':'[ ]'}}
+                            <div ng-show="show_poison_damage" class="smallCounter">
+                                <div class="lifeNumber poison ">
+                                    {{player.poison}}
                                 </div>
-                                <div class="colorSelector">
-                                    <div class="manaBtnContainer">
-                                        <div class="manaBtnWrapper" ng-repeat="color in all_colors">
-                                            <button class="manaBtn {{color}}" ng-click="player.add_color(color);"></button>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <button ng-click="player.reset_colors();">Reset</button>
-                                    </div>
-                                </div>
-                                <div>
-                                    Custom counters
-                                    <button ng-click="player.remove_counter();">-</button>
-                                    <button ng-click="player.add_counter();">+</button>
+                                <div class="lifeButtonContainer">
+                                    <button class="lifeButton" ng-click="player.poison = player.poison - 1">-</button>
+                                    <button class="lifeButton" ng-click="player.poison = player.poison + 1">+</button>
                                 </div>
                             </div>
-                            <div class="lifeTotal">
-                                <div class="tint verticalCenter">
-                                    <div class="lifeButtonContainer">
-                                        <button class="lifeButton" ng-click="player.life = player.life + 1">+</button>
-                                        <button class="lifeButton" ng-click="player.life = player.life + 5">5</button>
-                                    </div>
-                                    <div class="lifeNumber">{{player.life}}</div>
-                                    <div class="lifeButtonContainer">
-                                        <button class="lifeButton" ng-click="player.life = player.life - 1">-</button>
-                                        <button class="lifeButton" ng-click="player.life = player.life - 5">5</button>
-                                    </div>
-                                    <div ng-show="show_poison_damage" class="smallCounter">
-                                        <div class="lifeNumber poison ">
-                                            {{player.poison}}
-                                        </div>
-                                        <div class="lifeButtonContainer">
-                                            <button class="lifeButton" ng-click="player.poison = player.poison - 1">-</button>
-                                            <button class="lifeButton" ng-click="player.poison = player.poison + 1">+</button>
-                                        </div>
-                                    </div>
-                                    <div ng-repeat="(ctIndex,ct) in player.misc_counters track by $index" class="smallCounter">
-                                        <div class="lifeNumber">
-                                            {{ct}}
-                                        </div>
-                                        <div class="lifeButtonContainer">
-                                            <button class="lifeButton" ng-click="player.misc_counters[ctIndex] = player.misc_counters[ctIndex] - 1">-</button>
-                                            <button class="lifeButton" ng-click="player.misc_counters[ctIndex] = player.misc_counters[ctIndex] + 1">+</button>
-                                        </div>
-                                    </div>
-                                    <div class="commanderDamage" ng-show="show_commander_damage">
-                                        <div class="commanderDamageEntry" ng-repeat="(other_index,other) in players" ng-init="player.commander_damage[other_index]=0">
-                                            {{other.name.slice(0,10)}}{{other.name.length > 10 ? '...' : ''}}: <span class="commanderDamageNumber">{{player.commander_damage[other_index]}}</span>
-                                            <button class="lifeButton" ng-click="player.commander_damage[other_index] = player.commander_damage[other_index]-1; player.life = player.life + 1;">-1</button>
-                                            <button class="lifeButton" ng-click="player.commander_damage[other_index] = player.commander_damage[other_index]+1; player.life = player.life - 1;">+1</button>
-                                        </div>
-                                    </div>
+                            <div ng-repeat="(ctIndex,ct) in player.misc_counters track by $index" class="smallCounter">
+                                <div class="lifeNumber">
+                                    {{ct}}
+                                </div>
+                                <div class="lifeButtonContainer">
+                                    <button class="lifeButton" ng-click="player.misc_counters[ctIndex] = player.misc_counters[ctIndex] - 1">-</button>
+                                    <button class="lifeButton" ng-click="player.misc_counters[ctIndex] = player.misc_counters[ctIndex] + 1">+</button>
+                                </div>
+                            </div>
+                            <div class="commanderDamage" ng-show="show_commander_damage">
+                                <div class="commanderDamageEntry" ng-repeat="(other_index,other) in players" ng-init="player.commander_damage[other_index]=0">
+                                    {{other.name.slice(0,10)}}{{other.name.length > 10 ? '...' : ''}}: <span class="commanderDamageNumber">{{player.commander_damage[other_index]}}</span>
+                                    <button class="lifeButton" ng-click="player.commander_damage[other_index] = player.commander_damage[other_index]-1; player.life = player.life + 1;">-1</button>
+                                    <button class="lifeButton" ng-click="player.commander_damage[other_index] = player.commander_damage[other_index]+1; player.life = player.life - 1;">+1</button>
                                 </div>
                             </div>
                         </div>
@@ -134,5 +136,7 @@
             </div>
         </div>
     </div>
+    </div>
 </body>
+
 </html>
