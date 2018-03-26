@@ -5,13 +5,13 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116299795-1"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
 
-      gtag('config', 'UA-116299795-1');
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-116299795-1');
     </script>
-
     <script src="js/angularjs/1.6.4/angular.min.js"></script>
     <script src="js/angularjs/1.6.4/angular-route.js"></script>
     <script src="js/jquery/3.2.1/jquery.min.js"></script>
@@ -31,12 +31,10 @@
         </div>
         <div class="">
             A life counter for your big screen! (Works best on Firefox).
-            <p>
+            <form action="mobile/index.html">
                 Previous version of the app:
-                <a href="mobile/index.html">
-                    <button>here</button>
-                </a>
-            </p>
+                <input type="submit" value="here" />
+            </form>
         </div>
         <div class="hudContainer">
             <div class="hudItem">
