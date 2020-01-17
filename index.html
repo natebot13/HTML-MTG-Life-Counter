@@ -75,8 +75,8 @@
                 </div>
             </p>
         </div>
-        <div class="playerBannersContainer" style="">
-            <div class="player" ng-style="player.style" ng-repeat="(playerIndex, player) in players">
+        <div class="playerBannersContainer" >
+            <div class="player" ng-style="player.style" ng-repeat="(playerIndex, player) in players" ng-class="{'flipped':player.flipped}">
                 <div class="texture">
                     <div class="playerNameContainer">
                         <input class="playerName" ng-model="player.name" tabindex="{{playerIndex+1}}"></input>
@@ -86,6 +86,7 @@
                         <div ng-show="show_monarch" class="monarch" ng-class="{'status-applied':player.is_monarch}" ng-click="utils.set_monarch(playerIndex);"></div>
                     </div>
                     <div class="customizationPanel" ng-show="is_editing">
+                    
                         <div class="colorsList">
                             {{player.colors.length > 0 ? '['+ player.colors.join(' ') + ']':'[ ]'}}
                         </div>
@@ -98,6 +99,9 @@
                             <div>
                                 <button ng-click="player.reset_colors();">Reset</button>
                             </div>
+                        </div>
+                        <div>
+                            <button ng-click="player.flip()" class="flipButton">Flip</button>
                         </div>
                         <div>
                             Custom counters

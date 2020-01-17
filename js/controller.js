@@ -24,6 +24,7 @@ class Player {
         this.is_ascended = false;
         this.energy = 0;
         this.misc_counters = [];
+        this.flipped = false;
     }
 
     reset_colors() {
@@ -55,6 +56,9 @@ class Player {
 
     remove_counter() {
         this.misc_counters.pop();
+    }
+    flip(){
+        this.flipped = !this.flipped ;
     }
     
     static unJSON(json_obj) {
