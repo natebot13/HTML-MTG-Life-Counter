@@ -10,12 +10,16 @@ body {
     color: white;
 }
 
-
+.display-1{
+    text-align: center;
+    background: rgb(32, 32, 32);
+}
 .verticalCenter {
     display: flex;
     flex-direction: column;
     justify-content: center;
     flex-grow: 1;
+    width: 100%;
 }
 
 .player {
@@ -102,8 +106,7 @@ button {
     background: #FFFFFF;
     margin-right: 2px;
     margin-left: 2px;
-    /*height: 100%;*/
-    color: black;
+    /*height: 100%;*/color: black;
 }
 
 button:active {
@@ -131,10 +134,11 @@ button:active {
 }
 
 .lifeButton {
-    /*width: 100%;*/
+    width: 3em;
     flex-grow: 1;
-    /*make buttons overlap text so their entier area is clickable*/
+    /*make buttons overlap text so their entire area is clickable*/
     z-index: 10;
+
 }
 
 .customizationPanel {
@@ -204,6 +208,16 @@ button:active {
     background-image: url("images/W_BW.png");
 }
 
+.flipButton{
+    width: 2em;
+    background-color: white;
+    height: 2em;
+    background-position: center center;
+
+    background-image: url("images/Artboard_1-512.png");
+
+}
+
 .playerBannersContainer {
     height: 100% ;
     display: flex;
@@ -215,12 +229,11 @@ button:active {
 
 .hudContainer {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
 }
 
 
-.hudItem {}
 
 .colorSelector {
     color: white;
@@ -311,4 +324,8 @@ button:active {
 
 .status-applied {
     filter: saturate(100%);
+}
+
+.flipped{
+    transform: rotate(180deg);
 }
