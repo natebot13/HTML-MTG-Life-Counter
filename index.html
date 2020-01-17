@@ -82,8 +82,13 @@
                         <input class="playerName" ng-model="player.name" tabindex="{{playerIndex+1}}"></input>
                     </div>
                     <div class='statusEffectContainer'>
-                        <div ng-show="show_ascended" class="ascend" ng-class="{'status-applied':player.is_ascended}" ng-click="player.is_ascended = !player.is_ascended"></div>
-                        <div ng-show="show_monarch" class="monarch" ng-class="{'status-applied':player.is_monarch}" ng-click="utils.set_monarch(playerIndex);"></div>
+                        <button class="medallion" ng-show="show_ascended">
+
+                            <div  class="ascend" ng-class="{'status-applied':player.is_ascended}" ng-click="player.is_ascended = !player.is_ascended"></div>
+                        </button>
+                        <button class="medallion" ng-show="show_monarch" >
+                            <div class=" monarch" ng-class="{'status-applied':player.is_monarch}" ng-click="utils.set_monarch(playerIndex);"></div>
+                        </button>
                     </div>
                     <div class="customizationPanel" ng-show="is_editing">
                     

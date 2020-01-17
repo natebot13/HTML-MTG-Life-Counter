@@ -297,28 +297,37 @@ button:active {
 .statusEffectContainer {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
+}
+
+.medallion{
+    font-size: 0.5em;
+    flex-grow: 0.5;
+    flex-shrink: 1;
+    flex-basis: 1em;
+    border-radius: 0.5em;
+    margin: 0.5em;
+}
+
+.medallion div{
+    height: 2em;
 }
 
 .ascend {
     background-image: url("images/rix-mythic.png");
-    filter: blur(0.025em) saturate(15%);
-    flex-grow: 1;
+    filter: blur(0.05em) saturate(15%);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
-    min-height: 3em;
 }
 
 
 .monarch {
     background-image: url("images/CN2.png");
-    filter: blur(0.1em) saturate(1%);
-    flex-grow: 1;
+    filter: blur(0.1em) saturate(15%);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
-    min-height: 3em;
 }
 
 
